@@ -11,7 +11,7 @@ namespace Midheaven.Controllers
         // GET: Admin
         public ActionResult Login()
         {
-            //用户的登录
+            //用户的登录一哈哈哈哈哈哈
             return View();
         }
     }
