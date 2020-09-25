@@ -43,7 +43,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -88,22 +96,94 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="content\bootstrap-grid.css" />
+    <Content Include="content\bootstrap-grid.min.css" />
+    <Content Include="content\bootstrap-reboot.css" />
+    <Content Include="content\bootstrap-reboot.min.css" />
+    <Content Include="content\bootstrap.css" />
+    <Content Include="content\bootstrap.min.css" />
     <Content Include="data\中天教育（midheavenDB）.sql" />
     <Content Include="Global.asax" />
+    <Content Include="Models\MidheavenModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MidheavenModel.Context.cs</LastGenOutput>
+      <DependentUpon>MidheavenModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\MidheavenModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MidheavenModel.edmx</DependentUpon>
+      <LastGenOutput>MidheavenModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="script\bootstrap.bundle.js" />
+    <Content Include="script\bootstrap.bundle.min.js" />
+    <Content Include="script\bootstrap.js" />
+    <Content Include="script\bootstrap.min.js" />
+    <Content Include="script\jquery-3.4.1.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Course.cs">
+      <DependentUpon>MidheavenModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CourseComment.cs">
+      <DependentUpon>MidheavenModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Member.cs">
+      <DependentUpon>MidheavenModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MidheavenModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MidheavenModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MidheavenModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MidheavenModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MidheavenModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MidheavenModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Roles.cs">
+      <DependentUpon>MidheavenModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StudentCourse.cs">
+      <DependentUpon>MidheavenModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
+    <EntityDeploy Include="Models\MidheavenModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MidheavenModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\MidheavenModel.edmx.diagram">
+      <DependentUpon>MidheavenModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="content\bootstrap-grid.css.map" />
+    <Content Include="content\bootstrap-grid.min.css.map" />
+    <Content Include="content\bootstrap-reboot.css.map" />
+    <Content Include="content\bootstrap-reboot.min.css.map" />
+    <Content Include="content\bootstrap.css.map" />
+    <Content Include="content\bootstrap.min.css.map" />
     <None Include="packages.config" />
-    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Admin\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Admin\AdminIndex.cshtml" />
+    <Content Include="script\bootstrap.bundle.js.map" />
+    <Content Include="script\bootstrap.bundle.min.js.map" />
+    <Content Include="script\bootstrap.js.map" />
+    <Content Include="script\bootstrap.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -113,7 +193,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="image\" />
+    <Folder Include="Views\Member\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
