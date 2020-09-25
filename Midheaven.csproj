@@ -119,6 +119,7 @@
     <Content Include="script\bootstrap.js" />
     <Content Include="script\bootstrap.min.js" />
     <Content Include="script\jquery-3.4.1.min.js" />
+    <Content Include="title.ico" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

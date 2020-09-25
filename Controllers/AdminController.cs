@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Midheaven.Models;
 
 namespace Midheaven.Controllers
 {
     public class AdminController : Controller
     {
         // GET: Admin
+
+        /// <summary>
+        /// 数据实体对象
+        /// </summary>
+        midheavenDBEntities mDBEntities = new midheavenDBEntities();
 
         /// <summary>
         /// 管理员首页
@@ -26,7 +32,18 @@ namespace Midheaven.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public ActionResult AdminCourse()
+        public ActionResult AdminSelAllCourse()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// 查询单个课程
+        /// 显示当前课程的前10条评论
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult AdminSelOneCourse()
         {
             return View();
         }
