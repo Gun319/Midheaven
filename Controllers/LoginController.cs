@@ -21,6 +21,7 @@ namespace Midheaven.Controllers
         /// 判断用类型,根据用户类型跳转至不同的页面,使用异步判断
         /// 用户未通过审核禁止登录
         /// 7天"免登录"
+        /// 登陆成功查询用户信息是否补全,未补全跳转页面补录信息
         /// </summary>
         /// <returns></returns>
         [HttpGet]

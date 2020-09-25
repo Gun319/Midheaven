@@ -185,6 +185,7 @@
     <Content Include="script\bootstrap.bundle.min.js.map" />
     <Content Include="script\bootstrap.js.map" />
     <Content Include="script\bootstrap.min.js.map" />
+    <Content Include="Views\Member\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -195,7 +196,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="image\" />
-    <Folder Include="Views\Member\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
