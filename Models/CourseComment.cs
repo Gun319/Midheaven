@@ -18,5 +18,6 @@ namespace Midheaven.Models
         public Nullable<int> C_ID { get; set; }
         public string Info { get; set; }
         public Nullable<int> M_ID { get; set; }
+        public Nullable<System.DateTime> dtime { get; set; }
     }
 }

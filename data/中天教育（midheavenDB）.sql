@@ -93,5 +93,6 @@ create table CourseComment
 	C_ID int,						  --课程编号
 	Info varchar(2000),				  --评论内容
 	M_ID int,						  --成员编号
+	dtime datetime					  --评论时间
 )
 go

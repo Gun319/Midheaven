@@ -46,5 +46,46 @@ namespace Midheaven.Controllers
         {
             return View();
         }
+
+        /// <summary>
+        /// 教师添加课程
+        /// 用户类型为教师,关联当前教师id
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult AddCourse()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// 修改课程信息
+        /// 教师只能修改自己上传的课程
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult EditCourseById()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// 删除课程
+        /// 教师只能删除自己上传的课程
+        /// </summary>
+        /// <param name="id">课程编号</param>
+        /// <returns></returns>
+        public ActionResult DelCourseById(int id)
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// 教师查询当前课程所有评论
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult SelCourseCommentById()
+        {
+            return View();
+        }
     }
 }
