@@ -40,6 +40,16 @@ namespace Midheaven.Controllers
         }
 
         /// <summary>
+        /// 教师登陆成功
+        /// 教师所属课程，及其简介
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult MemberByTeacher()
+        {
+            return View();
+        }
+
+        /// <summary>
         /// 成员注册
         /// 发送邮箱验证码
         /// </summary>
@@ -157,7 +167,7 @@ namespace Midheaven.Controllers
 
                 return true;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }
