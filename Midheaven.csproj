@@ -102,6 +102,7 @@
     <Content Include="content\bootstrap-reboot.min.css" />
     <Content Include="content\bootstrap.css" />
     <Content Include="content\bootstrap.min.css" />
+    <Content Include="content\style.css" />
     <Content Include="data\中天教育（midheavenDB）.sql" />
     <Content Include="Global.asax" />
     <Content Include="Models\MidheavenModel.Context.tt">
@@ -119,6 +120,7 @@
     <Content Include="script\bootstrap.js" />
     <Content Include="script\bootstrap.min.js" />
     <Content Include="script\jquery-3.4.1.min.js" />
+    <Content Include="script\vector.js" />
     <Content Include="title.ico" />
     <Content Include="Web.config" />
   </ItemGroup>
