@@ -61,7 +61,7 @@ create table Member
 	PhoneNum varchar(11),					--电话
 	Address varchar(50),					--地址
 	R_ID int,								--角色编号
-	M_Flog int check(M_Flog=0 or M_Flog=1) default(0),--是否通过审核(0 是  1 否 默认已审核，未通过审核禁止登陆)
+	M_Flog int check(M_Flog=0 or M_Flog=1) default(0)--是否通过审核(0 是  1 否 默认已审核，未通过审核禁止登陆)
 )
 go
 
@@ -73,7 +73,7 @@ create table Course
 	C_Desc varchar(2000),				--课程描述
 	C_img varchar(20),					--课程图片
 	M_ID int,							--成员编号
-	C_flog int							--课程状态
+	C_flog int check(M_Flog=0 or M_Flog=1) default(0)--课程状态(0 是  1 否 默认已审核，未审核不可在客户端展示）
 )
 go
 

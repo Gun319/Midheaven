@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using Midheaven.Models;
@@ -71,6 +74,7 @@ namespace Midheaven.Controllers
         /// <summary>
         /// 删除课程
         /// 教师只能删除自己上传的课程
+        /// 仅改变课程状态
         /// </summary>
         /// <param name="id">课程编号</param>
         /// <returns></returns>
@@ -86,6 +90,95 @@ namespace Midheaven.Controllers
         public ActionResult SelCourseCommentById()
         {
             return View();
+        }
+
+        /// <summary>
+        /// 教师删除当前课程评论
+        /// 根据评论id
+        /// 单条删除和全选删除
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult DelCourseCommentById()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// 发送邮件
+        /// </summary>
+        /// <param name="direction">收件人地址</param>
+        /// <returns></returns>
+        private bool sendEmail(string direction)
+        {
+            try
+            {
+                //发送者邮箱账户
+                string sendEmail = "junjie-pan-mail@foxmail.com";
+                //发送者邮箱账户授权码
+                string code = "assbuatxoydlbhjf";
+                //发件人地址
+                MailAddress from = new MailAddress(sendEmail);
+                MailMessage message = new MailMessage();
+
+                //收件人地址 从客户端获取
+                message.To.Add(direction);
+
+                //标题
+                message.Subject = "中天教育注册";
+                message.SubjectEncoding = Encoding.UTF8;
+
+                //生成四位随机数 作为验证码
+                string authCode = AuthCode();
+
+                //邮件内容
+                message.Body = string.Format(@"
+                        <div style='margin:auto'>
+                            <h2 style='text-align: center; font-size:28px'>
+                                <b>中天<span style='color:#AAA'>教育</span></b>
+                            </h2>
+                            <div style='width:500px;margin:auto'>
+                                <h1 style='font-size: 24px'><b>激活您的帐户</b></h1><br />
+                                感谢您注册 中天教育！<br /><br />
+                                <b><span style='font-size:28px'>您的验证码：{0}</span></b><br /><br />
+                                <span>确认后，您可以使用新帐户登录 中天教育 开始您的学习之旅</span>
+                            </div>
+                        </div>", authCode);
+
+                message.IsBodyHtml = true;
+                message.BodyEncoding = Encoding.UTF8;
+
+                SmtpClient client = new SmtpClient();
+                client.EnableSsl = true;
+                client.Host = "smtp.qq.com";//smtp服务器
+                client.Port = 587;//smtp端口
+                                  //发送者邮箱账户和授权码
+                client.Credentials = new NetworkCredential(sendEmail, code);
+                client.Send(message);
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 验证码生成
+        /// </summary>
+        /// <returns></returns>
+        private string AuthCode()
+        {
+            string code = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";//要随机的字母
+            Random rand = new Random(); //随机类
+            string result = "";
+            for (int i = 0; i < 6; i++) //循环6次，生成6位数字，10位就循环10次
+            {
+                result += code[rand.Next(63)]; //通过索引下标随机
+            }
+            //暂存
+            TempData["authCode"] = result;
+            return result;
         }
     }
 }
