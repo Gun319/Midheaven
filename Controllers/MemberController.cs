@@ -30,6 +30,17 @@ namespace Midheaven.Controllers
         }
 
         /// <summary>
+        /// 成员注册
+        /// 发送邮箱验证码
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        /// <summary>
         /// 学生登陆成功
         /// 所有课程显示简介,课程选择按钮
         /// </summary>
@@ -40,22 +51,31 @@ namespace Midheaven.Controllers
         }
 
         /// <summary>
-        /// 教师登陆成功
-        /// 教师所属课程，及其简介
+        /// 学生课程选择
+        /// 显示已选的课程,课程删除
         /// </summary>
         /// <returns></returns>
-        public ActionResult MemberByTeacher()
+        public ActionResult SelStudentCourse()
         {
             return View();
         }
 
         /// <summary>
-        /// 成员注册
-        /// 发送邮箱验证码
+        /// 学生课程选择
+        /// 显示已选的课程,根据课程id进行删除,真删除
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
-        public ActionResult Register()
+        public ActionResult DelStudentCourse(int id)
+        {
+            return RedirectToAction("SelStudentCourse");
+        }
+
+        /// <summary>
+        /// 教师登陆成功
+        /// 教师所属课程，及其简介
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult MemberByTeacher()
         {
             return View();
         }
