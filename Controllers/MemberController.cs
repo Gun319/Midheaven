@@ -139,7 +139,7 @@ namespace Midheaven.Controllers
                             <div style='width:500px;margin:auto'>
                                 <h1 style='font-size: 24px'><b>激活您的帐户</b></h1><br />
                                 感谢您注册 中天教育！<br /><br />
-                                <b><span style='font-size:28px'>您的验证码：{0}</span></b><br /><br />
+                                <b><span style='font-size:28px'>您的验证码：<u style='color:blue'>{0}</u></span></b><br /><br />
                                 <span>确认后，您可以使用新帐户登录 中天教育 开始您的学习之旅</span>
                             </div>
                         </div>", authCode);
