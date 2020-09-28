@@ -29,5 +29,11 @@ namespace Midheaven.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Login(Member member)
+        {
+            return View();
+        }
     }
 }
