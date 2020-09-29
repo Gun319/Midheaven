@@ -33,11 +33,10 @@ namespace Midheaven.Controllers
         [HttpPost]
         public ActionResult Login(string username, string userpwd)
         {
-            int Code = 401; // 身份验证错误
             IQueryable<Member> member = mDBEntities.Member.Where(m => m.UserName == username & m.Password == userpwd);
             if (member.Count() == 1)
                 return Json(member);
-            return Json(Code);
+            return Json(member);
         }
     }
 }
