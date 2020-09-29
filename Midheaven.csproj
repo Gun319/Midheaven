@@ -197,6 +197,8 @@
     <Content Include="script\bootstrap.js.map" />
     <Content Include="script\bootstrap.min.js.map" />
     <Content Include="Views\Member\Index.cshtml" />
+    <Content Include="Views\Member\MemberByStudent.cshtml" />
+    <Content Include="Views\Member\MemberByTeacher.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
