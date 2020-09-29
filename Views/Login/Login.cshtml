@@ -34,7 +34,7 @@
                             @Html.CheckBox("chklogin")<span>记住密码</span>
                         </label>
                         <div class="float-right d-inline-block">
-                            @Html.ActionLink("还没有账户？", "Register", "Member", new { @class = "text-danger" })
+                            @Html.ActionLink("还没有账户？", "Register", new { Controller = "Member", Action = "Register" }, new { @class = "text-danger" })
                         </div>
 
                     </div>

@@ -39,6 +39,11 @@ namespace Midheaven.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult Register(string name)
+        {
+            return View();
+        }
 
         /// <summary>
         /// 学生登陆成功
@@ -138,7 +143,8 @@ namespace Midheaven.Controllers
         /// </summary>
         /// <param name="direction">收件人地址</param>
         /// <returns></returns>
-        private bool sendEmail(string direction)
+        [HttpPost]
+        public bool sendEmail(string direction)
         {
             try
             {
@@ -156,8 +162,9 @@ namespace Midheaven.Controllers
                 //标题
                 message.Subject = "中天教育注册";
                 message.SubjectEncoding = Encoding.UTF8;
+                message.From = from;
 
-                //生成四位随机数 作为验证码
+                //生成六位随机数 作为验证码
                 string authCode = AuthCode();
 
                 //邮件内容
@@ -197,7 +204,7 @@ namespace Midheaven.Controllers
         /// 验证码生成
         /// </summary>
         /// <returns></returns>
-        private string AuthCode()
+        public string AuthCode()
         {
             string code = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";//要随机的字母
             Random rand = new Random(); //随机类

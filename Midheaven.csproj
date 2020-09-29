@@ -103,6 +103,7 @@
     <Content Include="content\bootstrap.css" />
     <Content Include="content\bootstrap.min.css" />
     <Content Include="content\style.css" />
+    <Content Include="content\zhuce.css" />
     <Content Include="data\中天教育（midheavenDB）.sql" />
     <Content Include="Global.asax" />
     <Content Include="image\01.png" />
@@ -114,6 +115,12 @@
     <Content Include="image\07.png" />
     <Content Include="image\08.png" />
     <Content Include="image\09.png" />
+    <Content Include="image\login\footerBg.png" />
+    <Content Include="image\login\bk-login.png" />
+    <Content Include="image\login\user.png" />
+    <Content Include="image\login\zhuce-image-1.png" />
+    <Content Include="image\login\zhuce-image-2.png" />
+    <Content Include="image\login\zhuce-image-3.png" />
     <Content Include="Models\MidheavenModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MidheavenModel.Context.cs</LastGenOutput>
@@ -199,6 +206,7 @@
     <Content Include="Views\Member\Index.cshtml" />
     <Content Include="Views\Member\MemberByStudent.cshtml" />
     <Content Include="Views\Member\MemberByTeacher.cshtml" />
+    <Content Include="Views\Member\Register.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
