@@ -31,7 +31,7 @@
                 <div class="txt txt0">
                     <span style="float:left">邮&emsp;箱:</span>
                     <input name="Email" id="Email" type="text" placeholder="请输入邮箱" class="txtyzmdx" />
-                    <button class="emailCode" id="emailCode">获取验证码</button>&nbsp;<label class="text-danger">请输入邮箱</label>
+                    <button class="emailCode" id="emailCode">获取验证码</button>&nbsp;<label id="emailPrompt" class="text-danger"></label>
                 </div>
                 <form action="/Member/Register" method="post">
                     <div class="txt txt0">
@@ -75,18 +75,27 @@
     //发送邮箱验证码
     $("#emailCode").click(() => {
         var Email = $("#Email").val();
-        $.ajax({
-            url: "/Member/sendEmail",
-            type: "post",
-            data: { direction: Email },
-            success: () => {
-                $("#emailCode").text("验证码已发送")
-            }
-        });
+        if (Email.length != 0) {
+            $.ajax({
+                url: "/Member/sendEmail",
+                type: "post",
+                data: { direction: Email },
+                success: () => {
+                    $("#emailCode").text("验证码已发送");
+                },
+                error: () => {
+                    $("#emailPrompt").text("请求失败");
+                }
+            });
+        }
+        else {
+            $("#emailPrompt").text("请输入邮箱");
+        }
     });
 
     //还原按钮文字
-    $("#emailCode").focus(() => {
-        $("#emailCode").text("获取验证码")
+    $("#Email").focus(() => {
+        $("#emailCode").text("获取验证码");
+        $("#emailPrompt").text("");
     });
 </script>
