@@ -19,7 +19,9 @@ namespace Midheaven.Controllers
         /// </summary>
         midheavenDBEntities mDBEntities = new midheavenDBEntities();
 
-
+        /// <summary>
+        /// 暂存验证码
+        /// </summary>
         public static string result = "";
 
         /// <summary>
