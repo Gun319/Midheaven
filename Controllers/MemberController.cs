@@ -42,23 +42,29 @@ namespace Midheaven.Controllers
         {
             return View();
         }
+        /// <summary>
+        /// 成员注册
+        /// </summary>
+        /// <param name="uname"></param>
+        /// <param name="upwd"></param>
+        /// <param name="newcode"></param>
+        /// <param name="Role"></param>
+        /// <returns>代码有异常</returns>
         [HttpPost]
         public ActionResult Register(string uname, string upwd, string newcode, string Role)
         {
-            if (result.Trim() == newcode)
+            if (result == newcode) { }
+
+            Member member = new Member()
             {
-                Member member = new Member()
-                {
-                    UserName = uname,
-                    Password = upwd,
-                    R_ID = Convert.ToInt32(Role),
-                    M_Flog = 0,
-                };
-                mDBEntities.Member.Add(member);
-                mDBEntities.SaveChanges();
-                return Content("<script>alert('注册成功，快去登陆吧！');window.location.href='/Login/Login'</script>");
-            }
-            return Content("<script>alert('服务器繁忙！');</script>"); ;
+                UserName = uname,
+                Password = upwd,
+                R_ID = Convert.ToInt32(Role),
+                M_Flog = 0,
+            };
+            mDBEntities.Member.Add(member);
+            mDBEntities.SaveChanges();
+            return Content("<script>alert('注册成功，快去登陆吧！');window.location.href='/Login/Login'</script>");
         }
 
         /// <summary>

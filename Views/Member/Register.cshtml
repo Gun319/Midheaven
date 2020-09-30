@@ -36,7 +36,7 @@
                 <form method="post">
                     <div class="txt txt0">
                         <span style="letter-spacing:8px;">验证码:</span>
-                        <input name="EmailCode" id="EmailCode" type="text" class="txtphone" placeholder="请输入验证码" />
+                        <input name="EmailCode" id="EmailCode" type="text" class="txtphone" placeholder="请输入验证码" />                        
                     </div>
                     <div class=" txt0">
                         <span style="font-size:14px;color:#666;">用户类型：</span>&emsp;&emsp;
@@ -118,14 +118,10 @@
                     url: "/Member/Register",
                     type: "post",
                     data: { newcode: code, Role: role, uName: uname, uPwd: upwd },
-                    success: (data) => {
-                        if (Code == 401)
-                            $("#emailPrompt").text("验证码不正确");
-                    }
                 });
             } else {
                 $("#pwdlPrompt").text("两次密码不一致");
             }
         }
-    })
+    });
 </script>
