@@ -36,22 +36,28 @@
                 <form action="/Member/Register" method="post">
                     <div class="txt txt0">
                         <span style="letter-spacing:8px;">验证码:</span>
-                        <input name="EmailCode" type="text" class="txtphone" placeholder="请输入验证码" />
+                        <input name="EmailCode" id="EmailCode" type="text" class="txtphone" placeholder="请输入验证码" />
+                    </div>
+                    <div class=" txt0">
+                        <span style="font-size:14px;color:#666;">用户类型：</span>&emsp;&emsp;
+                        <label class="col-form-label"> @Html.RadioButton("radRole", "2")<span>教师</span></label>&emsp;
+                        <label class="col-form-label"> @Html.RadioButton("radRole", "3")<span>学生</span></label>&emsp;
                     </div>
                     <div class="txt txt0">
                         <span style="letter-spacing:8px;">用户名:</span>
-                        <input name="uName" type="text" class="txtphone" placeholder="请输入用户名" />
+                        <input name="uName" id="uName" type="text" class="txtphone" placeholder="请输入用户名" />
                     </div>
                     <div class="txt txt0">
                         <span style="letter-spacing:4px;">登录密码:</span>
-                        <input name="uPwd" type="text" class="txtphone" placeholder="请输入密码" />
+                        <input name="uPwd" id="uPwd" type="text" class="txtphone" placeholder="请输入密码" />
                     </div>
                     <div class="txt txt0">
                         <span style="letter-spacing:4px;">重复密码:</span>
-                        <input name="uPwd1" type="text" class="txtphone" placeholder="请再次输入密码" />
+                        <input name="uPwd1" id="uPwd1" type="text" class="txtphone" placeholder="请再次输入密码" />
+                        &nbsp;<label id="pwdlPrompt" class="text-danger"></label>
                     </div>
                     <div class="txt txt0">
-                        <button type="submit" class="zhucebtn">确认注册</button>
+                        <button type="submit" id="ZC" class="zhucebtn">确认注册</button>
                     </div>
                 </form>
             </div>
@@ -98,4 +104,26 @@
         $("#emailCode").text("获取验证码");
         $("#emailPrompt").text("");
     });
+
+
+    $("#ZC").click(() => {
+        var code = $("#EmailCode").val();
+        var role = $("#radRole:checked").val();
+        var uname = $("#uName").val();
+        var upwd = $("#uPwd").val();
+        var upwd1 = $("#uPwd1").val();
+        if (upwd == upwd1) {
+            $.ajax({
+                url: "/Member/Register",
+                type: "post",
+                data: { newcode: code, Role: role, uName: uname, uPwd: upwd },
+                success: (data) => {
+                    if (data.Code == 401)
+                        $("#emailPrompt").text("验证码不正确");
+                }
+            });
+        } else {
+            $("#pwdlPrompt").text("两次密码不一致");
+        }
+    })
 </script>

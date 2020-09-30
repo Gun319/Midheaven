@@ -40,9 +40,25 @@ namespace Midheaven.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Register(string name)
+        public ActionResult Register(string uname, string upwd, string newcode, string Role)
         {
-            return View();
+            int Code = 401;
+            int rid = Convert.ToInt32(Role);
+            string code = TempData["authCode"].ToString();
+            if (code == newcode)
+            {
+                Member member = new Member()
+                {
+                    UserName = uname,
+                    Password = upwd,
+                    R_ID = rid,
+                    M_Flog = 0,
+                };
+                mDBEntities.Member.Add(member);
+                mDBEntities.SaveChanges();
+                return Content("<script>alert('注册成功，快去登陆吧！');window.location.href='/Login/Login'</script>");
+            }
+            return Json(Code);
         }
 
         /// <summary>
