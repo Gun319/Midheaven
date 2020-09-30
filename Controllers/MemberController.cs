@@ -19,6 +19,9 @@ namespace Midheaven.Controllers
         /// </summary>
         midheavenDBEntities mDBEntities = new midheavenDBEntities();
 
+
+        public static string result = "";
+
         /// <summary>
         /// 首页(游客)
         /// 页面必须包含登录、注册
@@ -42,23 +45,20 @@ namespace Midheaven.Controllers
         [HttpPost]
         public ActionResult Register(string uname, string upwd, string newcode, string Role)
         {
-            int Code = 401;
-            int rid = Convert.ToInt32(Role);
-            string code = TempData["authCode"].ToString();
-            if (code == newcode)
+            if (result.Trim() == newcode)
             {
                 Member member = new Member()
                 {
                     UserName = uname,
                     Password = upwd,
-                    R_ID = rid,
+                    R_ID = Convert.ToInt32(Role),
                     M_Flog = 0,
                 };
                 mDBEntities.Member.Add(member);
                 mDBEntities.SaveChanges();
                 return Content("<script>alert('注册成功，快去登陆吧！');window.location.href='/Login/Login'</script>");
             }
-            return Json(Code);
+            return Content("<script>alert('服务器繁忙！');</script>"); ;
         }
 
         /// <summary>
@@ -224,13 +224,13 @@ namespace Midheaven.Controllers
         {
             string code = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";//要随机的字母
             Random rand = new Random(); //随机类
-            string result = "";
+            result = "";
             for (int i = 0; i < 6; i++) //循环6次，生成6位数字，10位就循环10次
             {
                 result += code[rand.Next(63)]; //通过索引下标随机
             }
             //暂存
-            TempData["authCode"] = result;
+
             return result;
         }
     }

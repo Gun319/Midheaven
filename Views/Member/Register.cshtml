@@ -33,7 +33,7 @@
                     <input name="Email" id="Email" type="text" placeholder="请输入邮箱" class="txtyzmdx" />
                     <button class="emailCode" id="emailCode">获取验证码</button>&nbsp;<label id="emailPrompt" class="text-danger"></label>
                 </div>
-                <form action="/Member/Register" method="post">
+                <form method="post">
                     <div class="txt txt0">
                         <span style="letter-spacing:8px;">验证码:</span>
                         <input name="EmailCode" id="EmailCode" type="text" class="txtphone" placeholder="请输入验证码" />
@@ -112,18 +112,20 @@
         var uname = $("#uName").val();
         var upwd = $("#uPwd").val();
         var upwd1 = $("#uPwd1").val();
-        if (upwd == upwd1) {
-            $.ajax({
-                url: "/Member/Register",
-                type: "post",
-                data: { newcode: code, Role: role, uName: uname, uPwd: upwd },
-                success: (data) => {
-                    if (data.Code == 401)
-                        $("#emailPrompt").text("验证码不正确");
-                }
-            });
-        } else {
-            $("#pwdlPrompt").text("两次密码不一致");
+        if (code.length != 0) {
+            if (upwd == upwd1) {
+                $.ajax({
+                    url: "/Member/Register",
+                    type: "post",
+                    data: { newcode: code, Role: role, uName: uname, uPwd: upwd },
+                    success: (data) => {
+                        if (Code == 401)
+                            $("#emailPrompt").text("验证码不正确");
+                    }
+                });
+            } else {
+                $("#pwdlPrompt").text("两次密码不一致");
+            }
         }
     })
 </script>
