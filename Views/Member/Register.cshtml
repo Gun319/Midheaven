@@ -36,7 +36,7 @@
                 <form method="post">
                     <div class="txt txt0">
                         <span style="letter-spacing:8px;">验证码:</span>
-                        <input name="EmailCode" id="EmailCode" type="text" class="txtphone" placeholder="请输入验证码" />                        
+                        <input name="EmailCode" id="EmailCode" type="text" class="txtphone" placeholder="请输入验证码" /><label id="codePrompt" class="text-danger"></label>
                     </div>
                     <div class=" txt0">
                         <span style="font-size:14px;color:#666;">用户类型：</span>&emsp;&emsp;
@@ -53,17 +53,15 @@
                     </div>
                     <div class="txt txt0">
                         <span style="letter-spacing:4px;">重复密码:</span>
-                        <input name="uPwd1" id="uPwd1" type="text" class="txtphone" placeholder="请再次输入密码" />
-                        &nbsp;<label id="pwdlPrompt" class="text-danger"></label>
+                        <input name="uPwd1" id="uPwd1" type="text" class="txtphone" placeholder="请再次输入密码" /><label id="pwdlPrompt" class="text-danger"></label>
                     </div>
                     <div class="txt txt0">
-                        <button type="submit" id="ZC" class="zhucebtn">确认注册</button>
+                        <button id="ZC" type="button" class="zhucebtn">确认注册</button><label id="login" class="ml-2 mt-2"></label>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-
     <div class="footer">
         <div class="footer0">
             <div class="footer_l">使用条款 | 隐私保护</div>
@@ -73,12 +71,14 @@
 </body>
 </html>
 <script type="text/javascript">
-    $(document).ready(function () {
+$(document).ready(function () {
         var height = $(document).height();
         $(".main").css("height", height);
     });
 
-    //发送邮箱验证码
+    /**
+     发送邮箱验证码
+     */
     $("#emailCode").click(() => {
         var Email = $("#Email").val();
         if (Email.length != 0) {
@@ -86,12 +86,13 @@
                 url: "/Member/sendEmail",
                 type: "post",
                 data: { direction: Email },
-                success: () => {
-                    $("#emailCode").text("验证码已发送");
+                success: (data) => {
+                    if (data == 200) {
+                        $("#emailCode").text("验证码已发送");
+                    } else {
+                        $("#emailPrompt").text("服务器繁忙");
+                    }
                 },
-                error: () => {
-                    $("#emailPrompt").text("请求失败");
-                }
             });
         }
         else {
@@ -105,7 +106,13 @@
         $("#emailPrompt").text("");
     });
 
+    $("#uPwd1").focus(() => {
+        $("#pwdlPrompt").text("");
+    });
 
+    /**
+     注册
+     */
     $("#ZC").click(() => {
         var code = $("#EmailCode").val();
         var role = $("#radRole:checked").val();
@@ -118,10 +125,20 @@
                     url: "/Member/Register",
                     type: "post",
                     data: { newcode: code, Role: role, uName: uname, uPwd: upwd },
+                    success: (data) => {
+                        if (data == 200) {
+                            $("#login").append("注册成功 <a href='/Login/Login'>去登录</a>");
+                        }
+                        if (data == 201)
+                            $("#codePrompt").text("验证码错误");
+                    },
                 });
             } else {
                 $("#pwdlPrompt").text("两次密码不一致");
             }
+        } else {
+            $("#codePrompt").text("请填写验证吗");
+            $("#EmailCode").focus();
         }
     });
 </script>

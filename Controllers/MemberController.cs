@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using Midheaven.Models;
 
@@ -53,20 +54,27 @@ namespace Midheaven.Controllers
         /// <param name="Role"></param>
         /// <returns>代码有异常</returns>
         [HttpPost]
-        public ActionResult Register(string uname, string upwd, string newcode, string Role)
+        public JsonResult Register(string uname, string upwd, string newcode, string Role)
         {
-            if (result == newcode) { }
-
-            Member member = new Member()
+            int code = 200;
+            if (result == newcode)
             {
-                UserName = uname,
-                Password = upwd,
-                R_ID = Convert.ToInt32(Role),
-                M_Flog = 0,
-            };
-            mDBEntities.Member.Add(member);
-            mDBEntities.SaveChanges();
-            return Content("<script>alert('注册成功，快去登陆吧！');window.location.href='/Login/Login'</script>");
+                Member member = new Member()
+                {
+                    UserName = uname,
+                    Password = upwd,
+                    R_ID = Convert.ToInt32(Role),
+                    M_Flog = 0,
+                };
+                mDBEntities.Member.Add(member);
+                mDBEntities.SaveChanges();
+                return Json(code);
+            }
+            else
+            {
+                code = 201;
+                return Json(code);
+            }
         }
 
         /// <summary>
@@ -168,8 +176,9 @@ namespace Midheaven.Controllers
         /// <param name="direction">收件人地址</param>
         /// <returns></returns>
         [HttpPost]
-        public bool sendEmail(string direction)
+        public JsonResult sendEmail(string direction)
         {
+            int codet = 200;
             try
             {
                 //发送者邮箱账户
@@ -216,11 +225,12 @@ namespace Midheaven.Controllers
                 client.Credentials = new NetworkCredential(sendEmail, code);
                 client.Send(message);
 
-                return true;
+                return Json(codet);
             }
             catch (Exception)
             {
-                return false;
+                codet = 201;
+                return Json(codet);
             }
         }
 
