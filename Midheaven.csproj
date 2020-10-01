@@ -136,6 +136,8 @@
     <Content Include="script\bootstrap.js" />
     <Content Include="script\bootstrap.min.js" />
     <Content Include="script\jquery-3.4.1.min.js" />
+    <Content Include="script\Login.js" />
+    <Content Include="script\Register.js" />
     <Content Include="script\vector.js" />
     <Content Include="title.ico" />
     <Content Include="Web.config" />
