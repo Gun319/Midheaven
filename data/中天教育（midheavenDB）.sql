@@ -72,15 +72,15 @@ create table Member
 go
 
 --向成员表添加数据
-insert into Member values('admin','admin','潘俊杰','男',21,'15897703377','湖北襄阳',1,0)		--添加管理员
-insert into Member values('彭老师','123456','彭慧','女',20,'15748625881','湖北武汉',2,0)			--添加老师
-insert into Member(UserName,Password,RealName,R_ID) values('杨老师','123456','杨智雯',2)				
-insert into Member(UserName,Password,RealName,R_ID) values('黄老师','123456','黄蓉',2)					
-insert into Member(UserName,Password,RealName,R_ID) values('何老师','123456','何秀芬',2)
-insert into Member values('杨同学','112233','杨如意','男',20,'17683802203','湖北孝感',3,0)			--添加学生
-insert into Member(UserName,Password,RealName,R_ID) values('肖同学','112233','肖文清',3)				
-insert into Member(UserName,Password,RealName,R_ID) values('祝同学','112233','祝世新',3)
-insert into Member(UserName,Password,RealName,R_ID) values('刘同学','112233','刘航',3)				
+insert into Member values('小杰admin','admin','潘俊杰','男',21,'15897703377','湖北襄阳',1,0)		--添加管理员
+insert into Member values('PH','123456','彭慧','女',20,'15748625881','湖北武汉',2,0)			--添加老师
+insert into Member(UserName,Password,RealName) values('YZW','123456','杨智雯')				
+insert into Member(UserName,Password,RealName) values('HR','123456','黄蓉')					
+insert into Member(UserName,Password,RealName) values('HXF','123456','何秀芬')
+insert into Member values('YRY','112233','杨如意','男',20,'17683802203','湖北孝感',3,0)			--添加学生
+insert into Member(UserName,Password,RealName) values('XWQ','112233','肖文清')				
+insert into Member(UserName,Password,RealName) values('ZSX','112233','祝世新')
+insert into Member(UserName,Password,RealName) values('LH','112233','刘航')				
 go
 
 --创建课程表 Course
@@ -139,15 +139,15 @@ create table CourseComment
 go
 
 --向课程评论表CourseComment添加数据
-insert into CourseComment values(1,'有些费脑子。',6,'2020.09.29 14:27')
-insert into CourseComment values(2,'学废了学废了。',7,'2020.09.28 13:25')
-insert into CourseComment values(3,'懂了懂了这就去求职。',8,'2020.09.28 20:19')
+insert into CourseComment values(1,'有些费脑子',6,'2020.09.29 14:27')
+insert into CourseComment values(2,'学废了学废了',7,'2020.09.28 13:25')
+insert into CourseComment values(3,'懂了懂了这就去求职',8,'2020.09.28 20:19')
 insert into CourseComment values(4,'学习到了很多实用的东西！',9,'2020.09.17 08:15')
-insert into CourseComment values(5,'现在面试到了一份不错的工作呢。',6,'2020.09.29 11:56')
-insert into CourseComment values(6,'知识讲的很到位，赞！',7,'2020.09.19 12:15')
-insert into CourseComment values(7,'爱了爱了，发量明显减少，专业知识明显增多。',8,'2020.09.21 18:16')
-insert into CourseComment values(8,'发际线后移了，这是怎么回事？',9,'2020.09.30 21:26')
-insert into CourseComment values(9,'这知识它不进脑子呀。',6,'2020.09.14 06:35')
+insert into CourseComment values(5,'现在面试到了一份不错的工作呢',6,'2020.09.29 11:56')
+insert into CourseComment values(6,'知识讲的很到位，赞',7,'2020.09.19 12:15')
+insert into CourseComment values(7,'爱了爱了，发量明显减少，专业知识明显增多',8,'2020.09.21 18:16')
+insert into CourseComment values(8,'我发现我的发际线后移了呢，这是怎么回事',9,'2020.09.30 21:26')
+insert into CourseComment values(9,'这知识它不进脑子呀',6,'2020.09.14 06:35')
 
 --查询角色表
 select * from Roles

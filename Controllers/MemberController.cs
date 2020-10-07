@@ -37,6 +37,7 @@ namespace Midheaven.Controllers
 
         /// <summary>
         /// 成员注册
+        /// 发送邮箱验证码
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -46,13 +47,12 @@ namespace Midheaven.Controllers
         }
         /// <summary>
         /// 成员注册
-        /// 验证邮箱验证码
         /// </summary>
         /// <param name="uname"></param>
         /// <param name="upwd"></param>
         /// <param name="newcode"></param>
         /// <param name="Role"></param>
-        /// <returns></returns>
+        /// <returns>代码有异常</returns>
         [HttpPost]
         public JsonResult Register(string uname, string upwd, string newcode, string Role)
         {
@@ -86,7 +86,22 @@ namespace Midheaven.Controllers
         {
             return View();
         }
-
+        /// <summary>
+        /// 添加学生
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Addstu()
+        {
+            return View();
+        }
+        /// <summary>
+        /// 修改学生信息
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Updatestu()
+        {
+            return View();
+        }
         /// <summary>
         /// 学生课程选择
         /// 显示已选的课程,课程删除

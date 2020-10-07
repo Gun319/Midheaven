@@ -23,7 +23,46 @@ namespace Midheaven.Controllers
         /// <returns></returns>
         public ActionResult AdminIndex()
         {
+            //获取学生名称
+            string stuname = Request["RealName"];
+            IQueryable<Member> stu = null;
+            if (!string.IsNullOrEmpty(stuname))
+            {
+                stu = mDBEntities.Member.Where(s => s.RealName.Contains(stuname));
+            }
+            else
+            {
+                stu = mDBEntities.Member;
+            }
+            ViewBag.stu = stu;
             return View();
+        }
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult Del(int id)
+        {
+            Models.Member mebinfo = new Member() { M_ID = id };
+            mDBEntities.Member.Attach(mebinfo);
+            mDBEntities.Member.Remove(mebinfo);
+            mDBEntities.SaveChanges();
+            return RedirectToAction("AdminIndex");
+        }
+        /// <summary>
+        /// 修改审核状态
+        /// </summary>
+        /// <param name="flag"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult Editflag(int flag, int id)
+        {
+            Member info = mDBEntities.Member.Where(st => st.M_ID == id).FirstOrDefault();
+            info.M_Flog = flag;
+            Session["flag"] = flag;
+            mDBEntities.SaveChanges();
+            return RedirectToAction("AdminIndex");
         }
 
         /// <summary>
@@ -34,6 +73,10 @@ namespace Midheaven.Controllers
         [HttpGet]
         public ActionResult AdminSelAllCourse()
         {
+            //课程信息
+            List<Models.Course> listclass = mDBEntities.Course.ToList();
+            ViewBag.cla = listclass;
+
             return View();
         }
 
