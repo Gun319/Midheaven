@@ -27,7 +27,7 @@ namespace Midheaven.Controllers
         [HttpGet]
         public ActionResult Login()
         {
-            return View();
+            return View(); 
         }
 
         [HttpPost]
