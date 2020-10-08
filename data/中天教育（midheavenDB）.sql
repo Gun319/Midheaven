@@ -75,8 +75,8 @@ go
 insert into Member values('admin','admin','潘俊杰','男',21,'15897703377','湖北襄阳',1,0)		--添加管理员
 insert into Member values('彭老师','123456','彭慧','女',20,'15748625881','湖北武汉',2,0)			--添加老师
 insert into Member(UserName,Password,RealName,R_ID,M_Flog) values('杨老师','123456','杨智雯',2,0)				
-insert into Member(UserName,Password,RealName) values('黄老师','123456','黄蓉',2,0)					
-insert into Member(UserName,Password,RealName) values('何老师','123456','何秀芬',2,0)
+insert into Member(UserName,Password,RealName,R_ID,M_Flog) values('黄老师','123456','黄蓉',2,0)					
+insert into Member(UserName,Password,RealName,R_ID,M_Flog) values('何老师','123456','何秀芬',2,0)
 insert into Member values('杨同学','112233','杨如意','男',20,'17683802203','湖北孝感',3,0)			--添加学生
 insert into Member(UserName,Password,RealName,R_ID,M_Flog) values('肖同学','112233','肖文清',3,0)				
 insert into Member(UserName,Password,RealName,R_ID,M_Flog) values('祝同学','112233','祝世新',3,0)
