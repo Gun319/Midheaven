@@ -88,22 +88,6 @@ namespace Midheaven.Controllers
             return View();
         }
         /// <summary>
-        /// 添加学生
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult Addstu()
-        {
-            return View();
-        }
-        /// <summary>
-        /// 修改学生信息
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult Updatestu()
-        {
-            return View();
-        }
-        /// <summary>
         /// 学生课程选择
         /// 显示已选的课程,课程删除
         /// </summary>
@@ -162,26 +146,6 @@ namespace Midheaven.Controllers
         /// <param name="id">课程编号</param>
         /// <returns></returns>
         public ActionResult DelCourseById(int id)
-        {
-            return View();
-        }
-
-        /// <summary>
-        /// 教师查询当前课程所有评论
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult SelCourseCommentById()
-        {
-            return View();
-        }
-
-        /// <summary>
-        /// 教师删除当前课程评论
-        /// 根据评论id
-        /// 单条删除和全选删除
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult DelCourseCommentById()
         {
             return View();
         }
