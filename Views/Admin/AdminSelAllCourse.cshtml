@@ -1,4 +1,4 @@
-﻿
+﻿@model Midheaven.Models.Course
 @{
     ViewBag.Title = "AdminSelAllCourse";
     Layout = "~/Views/Admin/_LayoutAdmin.cshtml";
@@ -16,6 +16,13 @@
     }
 </style>
 <link href="~/script/bootstrap.min.css" rel="stylesheet" />
+@using (Html.BeginForm("AdminSelAllCourse", "Admin", FormMethod.Post))
+{
+    <div class="row ml-5">
+        <p>课程名称：@Html.TextBoxFor(m => m.C_Name)</p>
+        <input type="submit" name="sub" value="查询" />
+    </div>
+}
 <table border="1" cellpadding="0" cellspacing="0" class="con text-center">
     <tr>
         <th>课程编号</th>
@@ -23,7 +30,6 @@
         <th>课程描述</th>
         <th>课程图片</th>
         <th>课程状态</th>
-        <th>操作</th>
     </tr>
     @foreach (Midheaven.Models.Course item in ViewBag.cla)
     {
@@ -32,10 +38,14 @@
             <td>@item.C_Name</td>
             <td>@item.C_Desc</td>
             <td>@item.C_img</td>
-            <td>@item.C_flog</td>
-            <td>
-                @Html.ActionLink("删除", "StuDel", new { id = item.C_ID }, new { onclick = "return confirm('确认删除？')" })
-            </td>
+            @if (item.C_flog == 0)
+            {
+                <td>@Html.ActionLink("已审核", "c_flag", new { flag = 0, id = item.C_ID })</td>
+            }
+            else
+            {
+                <td>@Html.ActionLink("未审核", "c_flag", new { flag = 1, id = item.C_ID })</td>
+            }
         </tr>
     }
 </table>

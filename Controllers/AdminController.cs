@@ -41,18 +41,7 @@ namespace Midheaven.Controllers
             ViewBag.stu = members;
             return View();
         }
-        /// <summary>
-        /// 删除
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public ActionResult Del(int id)
-        {
-            Member mebinfo = new Member() { M_ID = id };
-            mDBEntities.Member.Remove(mebinfo);
-            mDBEntities.SaveChanges();
-            return RedirectToAction("AdminIndex");
-        }
+      
         /// <summary>
         /// 修改审核状态
         /// </summary>
@@ -81,7 +70,17 @@ namespace Midheaven.Controllers
 
             return View();
         }
-
+        /// <summary>
+        /// 修改课程审核状态
+        /// </summary>
+        /// <param name="flag"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult c_flag()
+        {
+            
+            return RedirectToAction("AdminSelAllCourse");
+        }
         /// <summary>
         /// 查询单个课程
         /// 显示当前课程的前10条评论
@@ -101,9 +100,39 @@ namespace Midheaven.Controllers
         [HttpGet]
         public ActionResult AdminAddMember()
         {
+            List<Roles> listmeb = mDBEntities.Roles.ToList();
+            //添加下拉框的默认值
+            var selectddl = new List<SelectListItem>()
+            {
+                new SelectListItem() {Text="--全部--",Value="-1" }
+            };
+            //查询的数据
+            var listmebinfo = new SelectList(listmeb, "R_ID", "R_Name");
+            //将从数据库查询的数据和自定义的数据统一
+            selectddl.AddRange(listmebinfo);
+            ViewBag.ddl = selectddl;
             return View();
         }
-
+        [HttpPost]
+        /// <summary>
+        /// 添加学生信息
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult AdminAddMember(Member meb)
+        {
+            Member mebm = new Member();
+            mebm.M_ID = meb.M_ID;
+            mebm.RealName = meb.RealName;
+            mebm.Sex = meb.Sex;
+            mebm.Age = meb.Age;
+            mebm.PhoneNum = meb.PhoneNum;
+            mebm.Address = meb.Address;
+            mebm.R_ID = meb.R_ID;
+            mebm.M_Flog = meb.M_Flog;
+            mDBEntities.Member.Add(meb);
+            mDBEntities.SaveChanges();
+            return Content("<script>alert('添加成功');location.href='/Admin/AdminIndex';</script>");
+        }
         /// <summary>
         /// 添加课程
         /// 需指定教师,并添加该课程所有信息
@@ -120,9 +149,15 @@ namespace Midheaven.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public ActionResult DelMemberByCID()
+        public ActionResult DelMemberByCID(int id)
         {
-            return View();
+            //根据学号查询删除信息
+            var mebinfo = mDBEntities.Member.Where(s => s.M_ID == id).FirstOrDefault();
+            //移除
+            mDBEntities.Member.Remove(mebinfo);
+            mDBEntities.SaveChanges();
+            return RedirectToAction("AdminIndex");
         }
+       
     }
 }
