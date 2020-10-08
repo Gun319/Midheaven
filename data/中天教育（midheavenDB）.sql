@@ -72,15 +72,15 @@ create table Member
 go
 
 --向成员表添加数据
-insert into Member values('小杰admin','admin','潘俊杰','男',21,'15897703377','湖北襄阳',1,0)		--添加管理员
-insert into Member values('PH','123456','彭慧','女',20,'15748625881','湖北武汉',2,0)			--添加老师
-insert into Member(UserName,Password,RealName) values('YZW','123456','杨智雯')				
-insert into Member(UserName,Password,RealName) values('HR','123456','黄蓉')					
-insert into Member(UserName,Password,RealName) values('HXF','123456','何秀芬')
-insert into Member values('YRY','112233','杨如意','男',20,'17683802203','湖北孝感',3,0)			--添加学生
-insert into Member(UserName,Password,RealName) values('XWQ','112233','肖文清')				
-insert into Member(UserName,Password,RealName) values('ZSX','112233','祝世新')
-insert into Member(UserName,Password,RealName) values('LH','112233','刘航')				
+insert into Member values('admin','admin','潘俊杰','男',21,'15897703377','湖北襄阳',1,0)		--添加管理员
+insert into Member values('彭老师','123456','彭慧','女',20,'15748625881','湖北武汉',2,0)			--添加老师
+insert into Member(UserName,Password,RealName,R_ID,M_Flog) values('杨老师','123456','杨智雯',2,0)				
+insert into Member(UserName,Password,RealName) values('黄老师','123456','黄蓉',2,0)					
+insert into Member(UserName,Password,RealName) values('何老师','123456','何秀芬',2,0)
+insert into Member values('杨同学','112233','杨如意','男',20,'17683802203','湖北孝感',3,0)			--添加学生
+insert into Member(UserName,Password,RealName,R_ID,M_Flog) values('肖同学','112233','肖文清',3,0)				
+insert into Member(UserName,Password,RealName,R_ID,M_Flog) values('祝同学','112233','祝世新',3,0)
+insert into Member(UserName,Password,RealName,R_ID,M_Flog) values('刘同学','112233','刘航',3,0)				
 go
 
 --创建课程表 Course

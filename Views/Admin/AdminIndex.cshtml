@@ -8,9 +8,10 @@
         width: 100%;
         margin: auto auto;
     }
+
     .all {
         width: 1000px;
-        height: 800px;
+        height: auto;
         margin: auto auto;
         background: url('../../image/41ff6d4fc8df1c547478d0830531a063.jpg') no-repeat;
     }
@@ -23,7 +24,8 @@
         {
             <div class="row ml-5">
                 <p>姓名：@Html.TextBoxFor(m => m.RealName)</p>
-                <p>是否审核通过：
+                <p>
+                    是否审核通过：
                     <span>@Html.RadioButtonFor(m => m.M_Flog, "0")是</span>
                     <span>@Html.RadioButtonFor(m => m.M_Flog, "1")否</span>
                     @Html.RadioButtonFor(m => m.M_Flog, "-1", new { @checked = true })全部
@@ -54,7 +56,7 @@
                     <td>@item.Age</td>
                     <td>@item.PhoneNum</td>
                     <td>@item.Address</td>
-                    <td>@item.R_ID</td>
+                    <td>@(Convert.ToInt32(item.R_ID)==2?"教师":"学生")</td>
                     @if (item.M_Flog == 0)
                     {
                         <td>@Html.ActionLink("已通过", "Editflag", new { flag = 1, id = item.M_ID })</td>

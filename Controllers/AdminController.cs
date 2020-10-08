@@ -23,18 +23,22 @@ namespace Midheaven.Controllers
         /// <returns></returns>
         public ActionResult AdminIndex()
         {
-            //获取学生名称
-            string stuname = Request["RealName"];
-            IQueryable<Member> stu = null;
-            if (!string.IsNullOrEmpty(stuname))
-            {
-                stu = mDBEntities.Member.Where(s => s.RealName.Contains(stuname));
-            }
-            else
-            {
-                stu = mDBEntities.Member;
-            }
-            ViewBag.stu = stu;
+            //获取成员名称
+            //string stuname = Request["RealName"];
+            string realName = Request["RealName"];
+            //IQueryable<Member> stu = null;
+            //if (!string.IsNullOrEmpty(stuname))
+            //{
+            //    stu = mDBEntities.Member.Where(s => s.RealName.Contains(stuname));
+            //}
+            //else
+            //{
+            //    stu = mDBEntities.Member;
+            //}
+            IQueryable<Member> members = mDBEntities.Member.Where(m => m.R_ID != 1);
+            if (!string.IsNullOrWhiteSpace(realName))
+                members = members.Where(m => m.RealName.Contains(realName));
+            ViewBag.stu = members;
             return View();
         }
         /// <summary>
@@ -44,8 +48,7 @@ namespace Midheaven.Controllers
         /// <returns></returns>
         public ActionResult Del(int id)
         {
-            Models.Member mebinfo = new Member() { M_ID = id };
-            mDBEntities.Member.Attach(mebinfo);
+            Member mebinfo = new Member() { M_ID = id };
             mDBEntities.Member.Remove(mebinfo);
             mDBEntities.SaveChanges();
             return RedirectToAction("AdminIndex");
@@ -60,7 +63,6 @@ namespace Midheaven.Controllers
         {
             Member info = mDBEntities.Member.Where(st => st.M_ID == id).FirstOrDefault();
             info.M_Flog = flag;
-            Session["flag"] = flag;
             mDBEntities.SaveChanges();
             return RedirectToAction("AdminIndex");
         }
