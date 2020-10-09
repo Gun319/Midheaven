@@ -128,6 +128,22 @@
     <Content Include="image\login\zhuce-image-1.png" />
     <Content Include="image\login\zhuce-image-2.png" />
     <Content Include="image\login\zhuce-image-3.png" />
+    <Content Include="image\Tourist-Img\01.png" />
+    <Content Include="image\Tourist-Img\02.png" />
+    <Content Include="image\Tourist-Img\03.png" />
+    <Content Include="image\Tourist-Img\04.png" />
+    <Content Include="image\Tourist-Img\05.png" />
+    <Content Include="image\Tourist-Img\06.png" />
+    <Content Include="image\Tourist-Img\07.png" />
+    <Content Include="image\Tourist-Img\08.png" />
+    <Content Include="image\Tourist-Img\09.png" />
+    <Content Include="image\Tourist-Img\10.png" />
+    <Content Include="image\Tourist-Img\11.png" />
+    <Content Include="image\Tourist-Img\12.png" />
+    <Content Include="image\Tourist-Img\13.png" />
+    <Content Include="image\Tourist-Img\14.png" />
+    <Content Include="image\Tourist-Img\15.png" />
+    <Content Include="image\Tourist-Img\16.png" />
     <Content Include="Models\MidheavenModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MidheavenModel.Context.cs</LastGenOutput>
