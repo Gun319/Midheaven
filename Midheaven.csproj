@@ -138,6 +138,7 @@
       <DependentUpon>MidheavenModel.edmx</DependentUpon>
       <LastGenOutput>MidheavenModel.cs</LastGenOutput>
     </Content>
+    <Content Include="script\Admin.js" />
     <Content Include="script\bootstrap.bundle.js" />
     <Content Include="script\bootstrap.bundle.min.js" />
     <Content Include="script\bootstrap.css" />

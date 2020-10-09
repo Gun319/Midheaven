@@ -10,10 +10,164 @@
     <meta name="viewport" content="width=device-width" />
     <link href="~/title.ico" rel="icon" type="image/x-icon" />
     <title>中天教育</title>
+    <link href="~/script/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/script/jquery-3.4.1.min.js"></script>
+    <script src="~/script/bootstrap.min.js"></script>
+    <style type="text/css">
+        #carousels {
+            margin: auto;
+            width: 50%;
+            border-bottom-right-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+            #carousels img {
+                border-bottom-right-radius: 10px;
+                border-top-right-radius: 10px;
+            }
+
+        .card-body .enum {
+            border-bottom-left-radius: 10px;
+            border-top-left-radius: 10px;
+        }
+
+        .card {
+            border: 0;
+        }
+
+        .cTitle {
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
     <div>
-        游客
+        <nav class="nav navbar text-white bg-secondary">
+            <span>中天教育</span>
+            <div class="justify-content-end mr-5">
+                <input type="text" name="name" placeholder="  Search" style="border-radius:20px; border:0;" class="mr-2" />
+                <a href="/Login/Login" class="text-white">登录</a>&emsp;|&emsp;
+                <u><a href="/Member/Register" class="text-white text-warning">注册</a></u>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="card row">
+                <div class="card-body">
+                    <div class="d-flex">
+                        <div class="col-3 bg-dark bg-dark enum shadow-lg">
+                            <div class="text-white-50 mt-4 ml-3">
+                                <span>前沿 / 区块链 / 人工智能 </span>
+                            </div>
+                            <div class="text-white-50 mt-3 ml-3">
+                                <span>前端 / 小程序 / JS </span>
+                            </div>
+                            <div class="text-white-50 mt-3 ml-3">
+                                <span>后端 / JAVA / Python </span>
+                            </div>
+                            <div class="text-white-50 mt-3 ml-3">
+                                <span>移动 / Android / IOS </span>
+                            </div>
+                            <div class="text-white-50 mt-3 ml-3">
+                                <span>云计算 / 大数据 / 容器 </span>
+                            </div>
+                            <div class="text-white-50 mt-3 ml-3">
+                                <span>运维 / 测试 / 数据库 </span>
+                            </div>
+                            <div class="text-white-50 mt-3 ml-3">
+                                <span>UI设计 / 3D动画 / 游戏 </span>
+                            </div>
+                        </div>
+                        <!-- 焦点大图 -->
+                        <div id="carousels" class="carousel slide shadow-lg col-9 bg-info" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousels" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousels" data-slide-to="1"></li>
+                                <li data-target="#carousels" data-slide-to="2"></li>
+                                <li data-target="#carousels" data-slide-to="3"></li>
+                                <li data-target="#carousels" data-slide-to="4"></li>
+                                <li data-target="#carousels" data-slide-to="5"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="~/image/b_log/001.jpg" class="d-block w-100" alt="">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="~/image/b_log/002.jpg" class="d-block w-100" alt="">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="~/image/b_log/003.jpg" class="d-block w-100" alt="">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="~/image/b_log/004.jpg" class="d-block w-100" alt="">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="~/image/b_log/005.jpg" class="d-block w-100" alt="">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="~/image/b_log/006.jpg" class="d-block w-100" alt="">
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carousels" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carousels" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                        <!-- end 焦点大图 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-4">
+            <div class="row">
+                <h2 class="d-inline-block">零基础就业</h2><span class="text-secondary pt-2">&emsp;从入门到具备1年开发经验</span>
+            </div>
+            <div class="row">
+                <div class="d-inline-block bg-light cTitle mr-3">
+                    <img src="#" alt="" />
+                    <h5>前端工程师体系课程</h5>
+                    <span>从0到前端全栈开发</span>
+                </div>
+                <div class="d-inline-block bg-light cTitle mr-3">
+                    <img src="#" alt="" />
+                    <h5>Java工程师体系课</h5>
+                    <span>从0到胜任大厂Java岗位</span>
+                </div>
+                <div class="d-inline-block  bg-light cTitle mr-3">
+                    <img src="#" alt="" />
+                    <h5>Python工程师体系课</h5>
+                    <span>从0到Python全栈开发</span>
+                </div>
+                <div class="d-inline-block bg-light cTitle">
+                    <img src="#" alt="" />
+                    <h5>大数据工程师体系课</h5>
+                    <span>抢占高薪“大”机遇</span>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <h2 class="d-inline-block">职场提升</h2><span class="text-secondary pt-2">&emsp;1年以上开发经验系统成长</span>
+            </div>
+            <div class="row">
+                <div class="d-inline-block bg-light cTitle mr-3">
+                    <img src="#" alt="" />
+
+                </div>
+                <div class="d-inline-block bg-light cTitle mr-3">
+                    <img src="#" alt="" />
+                </div>
+                <div class="d-inline-block  bg-light cTitle mr-3">
+                    <img src="#" alt="" />
+                </div>
+                <div class="d-inline-block bg-light cTitle">
+                    <img src="#" alt="" />
+                </div>
+            </div>
+        </div>
+        <hr class="shadow-lg" />
     </div>
 </body>
 </html>
