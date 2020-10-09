@@ -107,7 +107,6 @@
     <Content Include="content\zhuce.css" />
     <Content Include="data\中天教育（midheavenDB）.sql" />
     <Content Include="Global.asax" />
-    <Content Include="image\41ff6d4fc8df1c547478d0830531a063.jpg" />
     <Content Include="image\b_log\001.jpg" />
     <Content Include="image\b_log\002.jpg" />
     <Content Include="image\b_log\003.jpg" />
@@ -209,8 +208,6 @@
     <Content Include="content\bootstrap.min.css.map" />
     <None Include="packages.config" />
     <Content Include="Views\Login\Login.cshtml" />
-    <Content Include="Views\Admin\_LayoutAdmin.cshtml" />
-    <Content Include="Views\Admin\AdminIndex.cshtml" />
     <Content Include="script\bootstrap.bundle.js.map" />
     <Content Include="script\bootstrap.bundle.min.js.map" />
     <Content Include="script\bootstrap.js.map" />
@@ -219,6 +216,7 @@
     <Content Include="Views\Member\MemberByStudent.cshtml" />
     <Content Include="Views\Member\MemberByTeacher.cshtml" />
     <Content Include="Views\Member\Register.cshtml" />
+    <Content Include="Views\Admin\AdminIndex.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

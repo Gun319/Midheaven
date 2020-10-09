@@ -21,13 +21,12 @@ namespace Midheaven.Controllers
         /// 判断用类型,根据用户类型跳转至不同的页面,使用异步判断
         /// 用户未通过审核禁止登录
         /// 7天"免登录"
-        /// 登陆成功查询用户信息是否补全,未补全跳转页面补录信息
         /// </summary>
         /// <returns></returns>
         [HttpGet]
         public ActionResult Login()
         {
-            return View(); 
+            return View();
         }
 
         [HttpPost]
@@ -35,8 +34,8 @@ namespace Midheaven.Controllers
         {
             IQueryable<Member> member = mDBEntities.Member.Where(m => m.UserName == username & m.Password == userpwd);
             if (member.Count() == 1)
-                return Json(member);
-            return Json(member);
+                return Json(member, JsonRequestBehavior.AllowGet);
+            return Json(member, JsonRequestBehavior.AllowGet);
         }
     }
 }

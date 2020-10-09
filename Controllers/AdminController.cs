@@ -18,30 +18,27 @@ namespace Midheaven.Controllers
 
         /// <summary>
         /// 管理员首页
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult AdminIndex()
+        {
+            return View();
+        }
+        /// <summary>
+        /// 管理员首页
         /// 默认显示所有成员信息
         /// </summary>
         /// <returns></returns>
-        public ActionResult AdminIndex()
+        [HttpPost]
+        public ActionResult AdminIndex(string username)
         {
-            //获取成员名称
-            //string stuname = Request["RealName"];
-            string realName = Request["RealName"];
-            //IQueryable<Member> stu = null;
-            //if (!string.IsNullOrEmpty(stuname))
-            //{
-            //    stu = mDBEntities.Member.Where(s => s.RealName.Contains(stuname));
-            //}
-            //else
-            //{
-            //    stu = mDBEntities.Member;
-            //}
             IQueryable<Member> members = mDBEntities.Member.Where(m => m.R_ID != 1);
-            if (!string.IsNullOrWhiteSpace(realName))
-                members = members.Where(m => m.RealName.Contains(realName));
-            ViewBag.stu = members;
-            return View();
+            if (!string.IsNullOrWhiteSpace(username))
+                members = members.Where(m => m.RealName.Contains(username));
+            return Json(members, JsonRequestBehavior.AllowGet);
         }
-      
+
         /// <summary>
         /// 修改审核状态
         /// </summary>
@@ -71,6 +68,6 @@ namespace Midheaven.Controllers
             mDBEntities.SaveChanges();
             return RedirectToAction("AdminIndex");
         }
-       
+
     }
 }

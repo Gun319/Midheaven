@@ -69,12 +69,12 @@ namespace Midheaven.Controllers
                 };
                 mDBEntities.Member.Add(member);
                 mDBEntities.SaveChanges();
-                return Json(code);
+                return Json(code, JsonRequestBehavior.AllowGet);
             }
             else
             {
                 code = 201;
-                return Json(code);
+                return Json(code, JsonRequestBehavior.AllowGet);
             }
         }
 
@@ -205,12 +205,12 @@ namespace Midheaven.Controllers
                 client.Credentials = new NetworkCredential(sendEmail, code);
                 client.Send(message);
 
-                return Json(codet);
+                return Json(codet, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {
                 codet = 201;
-                return Json(codet);
+                return Json(codet, JsonRequestBehavior.AllowGet);
             }
         }
 
