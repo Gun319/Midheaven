@@ -227,8 +227,6 @@ namespace Midheaven.Controllers
             {
                 result += code[rand.Next(63)]; //通过索引下标随机
             }
-            //暂存
-
             return result;
         }
     }
