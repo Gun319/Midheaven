@@ -14,6 +14,10 @@
     <script src="~/script/jquery-3.4.1.min.js"></script>
     <script src="~/script/bootstrap.min.js"></script>
     <style type="text/css">
+        * {
+            margin: 0 0;
+        }
+
         #carousels {
             margin: auto;
             width: 50%;
@@ -34,10 +38,134 @@
         .card {
             border: 0;
         }
-
-        .cTitle {
-            border-radius: 10px;
+        /**/
+        a:hover {
+            text-decoration: none;
         }
+
+        .clearfix:after {
+            content: '\0020';
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        .clearfix {
+            *zoom: 1;
+        }
+
+        .path-list {
+            margin-top: 24px;
+        }
+
+            .path-list i {
+                float: left;
+                width: 50px;
+                height: 50px;
+                background: url(/image/Tourist-Img/path-2019-9.png) no-repeat;
+                background-size: 100%;
+                margin-left: 16px;
+                margin-right: 12px;
+            }
+
+            .path-list .i-web {
+                background-position: center 0;
+            }
+
+            .path-list .i-java {
+                background-position: center -50px;
+            }
+
+            .path-list .i-bigdata {
+                background: url(/image/Tourist-Img/bigdata.png) no-repeat;
+                background-size: cover;
+            }
+
+            .path-list .i-php {
+                background-position: center -200px;
+            }
+
+            .path-list .i-python {
+                background-position: center -100px;
+            }
+
+            .path-list .i-fullstack {
+                background-position: center -200px;
+            }
+
+            .path-list > a {
+                float: left;
+                margin-left: 18px;
+                font-size: 0;
+                display: block;
+                width: 270px;
+                padding-top: 20px;
+                box-sizing: border-box;
+                height: 90px;
+                overflow: hidden;
+                transition: all .3s;
+                background: #F3F5F6;
+                border-radius: 8px;
+                position: relative;
+            }
+
+                .path-list > a .label2020 {
+                    position: absolute;
+                    top: 0px;
+                    right: 0px;
+                    width: 48px;
+                    height: 18px;
+                    background-image: url(/image/Tourist-Img/class_2020.png);
+                    background-size: cover;
+                    background-position: center center;
+                }
+
+                .path-list > a:hover {
+                    box-shadow: 0px 4px 8px #0000001f;
+                }
+
+                .path-list > a:first-child {
+                    margin-left: 0;
+                }
+
+            .path-list .tit {
+                font-size: 18px;
+                font-weight: bold;
+                color: #1C1F21;
+                margin-top: 0px;
+            }
+
+            .path-list .desc {
+                font-size: 14px;
+                color: #1C1F21;
+                line-height: 16px;
+                margin-top: -15px;
+                font-weight: 400;
+            }
+
+        .container-types .recommend-box {
+            margin-top: 24px;
+            margin-left: 0px;
+        }
+
+        .container-types .recommend-box {
+            width: 270px;
+            height: 90px;
+            margin-right: 24px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .recommend-box a {
+            margin-left: 10px;
+        }
+
+        .container-types .recommend-box a:last-child {
+            margin-right: 0;
+        }
+        /**/
     </style>
 </head>
 <body>
@@ -98,7 +226,7 @@
                                     <img src="~/image/b_log/003.jpg" class="d-block w-100" alt="">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="~/image/b_log/004.jpg" class="d-block w-100" alt="">
+                                    <img src="~/image/b_log/004.jpg" class="d-block w-100" alt=""> 
                                 </div>
                                 <div class="carousel-item">
                                     <img src="~/image/b_log/005.jpg" class="d-block w-100" alt="">
@@ -127,47 +255,57 @@
                 <h2 class="d-inline-block">零基础就业</h2><span class="text-secondary pt-2">&emsp;从入门到具备1年开发经验</span>
             </div>
             <div class="row">
-                <div class="d-inline-block bg-light cTitle mr-3">
-                    <img src="#" alt="" />
-                    <h5>前端工程师体系课程</h5>
-                    <span>从0到前端全栈开发</span>
-                </div>
-                <div class="d-inline-block bg-light cTitle mr-3">
-                    <img src="#" alt="" />
-                    <h5>Java工程师体系课</h5>
-                    <span>从0到胜任大厂Java岗位</span>
-                </div>
-                <div class="d-inline-block  bg-light cTitle mr-3">
-                    <img src="#" alt="" />
-                    <h5>Python工程师体系课</h5>
-                    <span>从0到Python全栈开发</span>
-                </div>
-                <div class="d-inline-block bg-light cTitle">
-                    <img src="#" alt="" />
-                    <h5>大数据工程师体系课</h5>
-                    <span>抢占高薪“大”机遇</span>
+                <!-- 零基础就业 -->
+                <div class='path-list clearfix'>
+                    <a href='' target="_blank" data-track='ljtj-1-1'>
+                        <i class="i-web"></i>
+                        <p class="tit">前端工程师体系课</p>
+                        <p class="desc">从0到前端全栈开发</p>
+                        <div class="label2020"></div>
+                    </a>
+                    <a href=''>
+                        <i class="i-java"></i>
+                        <p class="tit">Java工程师体系课</p>
+                        <p class="desc">从0到胜任大厂Java岗位</p>
+                        <div class="label2020"></div>
+                    </a>
+                    <a href=''>
+                        <i class="i-python"></i>
+                        <p class="tit">Python工程师体系课</p>
+                        <p class="desc">从0到Python全栈开发</p>
+                        <div class="label2020"></div>
+                    </a>
+                    <a href=''>
+                        <i class="i-bigdata"></i>
+                        <p class="tit">大数据工程师体系课</p>
+                        <p class="desc">抢占高薪“大”机遇</p>
+                        <div class="label2020"></div>
+                    </a>
                 </div>
             </div>
-            <div class="row mt-5">
+            <!-- end 零基础就业 -->
+            <!-- 职场提升 -->
+            <div class="row mt-4">
                 <h2 class="d-inline-block">职场提升</h2><span class="text-secondary pt-2">&emsp;1年以上开发经验系统成长</span>
             </div>
             <div class="row">
-                <div class="d-inline-block bg-light cTitle mr-3">
-                    <img src="#" alt="" />
-
-                </div>
-                <div class="d-inline-block bg-light cTitle mr-3">
-                    <img src="#" alt="" />
-                </div>
-                <div class="d-inline-block  bg-light cTitle mr-3">
-                    <img src="#" alt="" />
-                </div>
-                <div class="d-inline-block bg-light cTitle">
-                    <img src="#" alt="" />
+                <div class="recommend-box">
+                    <a href="" target="_blank">
+                        <img src="~/image/Tourist-Img/index_javafullstack.png" height="90" alt="" />
+                    </a>
+                    <a href="" target="_blank">
+                        <img src="~/image/Tourist-Img/index_javaarchitect.png" height="90" alt="" />
+                    </a>
+                    <a href="" target="_blank">
+                        <img src="~/image/Tourist-Img/index_webfullstack.png" height="90" alt="" />
+                    </a>
+                    <a href="" target="_blank">
+                        <img src="~/image/Tourist-Img/index_dataanalysis.png" height="90" alt="" />
+                    </a>
                 </div>
             </div>
+            <!-- end 职场提升 -->
         </div>
-        <hr class="shadow-lg" />
     </div>
 </body>
 </html>
