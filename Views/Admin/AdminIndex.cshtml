@@ -24,14 +24,14 @@
                 </form>
                 <div class="mr-3">
                     <span>是否已注销:</span>
-                    <label>@Html.RadioButtonFor(m => m.M_Flog, "0")<span>未注销</span></label>
-                    <label>@Html.RadioButtonFor(m => m.M_Flog, "1")<span>已注销</span></label>
-                    <label>@Html.RadioButtonFor(m => m.M_Flog, "-1", new { @checked = true })<span>全部</span></label>
+                    <label>@Html.RadioButton("flog", "0")<span>未注销</span></label>
+                    <label>@Html.RadioButton("flog", "1")<span>已注销</span></label>
+                    <label>@Html.RadioButton("flog", "-1", new { @checked = true })<span>全部</span></label>
                 </div>
                 <button type="button" id="Sel" class="btn btn-info mr-5">查询</button>
             }
         </div>
-        <div class="container text-center" id="dg">
+        <div class="container text-center mt-3" id="dg">
             <table class="table table-striped table-hover">
                 <thead class="thead-light">
                     <tr>
@@ -57,15 +57,24 @@
 
 <script>
     SelInfo();
+
     $("#Sel").click(() => {
         SelInfo();
     });
 
+    $("#RealName").keydown((event) => {
+        SelInfo();
+    })
+
+    /**
+     显示所有成员信息
+     */
     function SelInfo() {
         var name = $("#RealName").val();
+        var flog = $("input[type='radio']:checked").val();
         $.ajax({
             url: '/Admin/AdminIndex',
-            data: { username: name },
+            data: { username: name, flog: flog },
             type: 'post',
             dataType: 'json',
             success: (data) => {
@@ -81,12 +90,51 @@
                     tab += "<td>" + item.PhoneNum + "</td>";
                     tab += "<td>" + item.Address + "</td>";
                     tab += "<td>" + (item.R_ID == 2 ? "教师" : "学生") + "</td>";
-                    tab += "<td>" + (item.M_Flog == 0 ? "未注销" : "已注销") + "</td>";
+                    tab += "<td><button class='btn btn-primary' onclick='Edit(" + item.M_ID + ")'>" + (item.M_Flog == 0 ? "未注销" : "已注销") + "</button></td>";
                     tab += "<td><button type='button' class='btn btn-danger' onclick='Del(" + item.M_ID + ")'>删除</button>";
                     tab += "</tr>";
                 })
                 $("#dg tbody tr").remove();
                 $("#dg tbody").append(tab);
+            }
+        });
+    }
+
+    /**
+     更改成员注销状态
+     */
+    function Edit(mid) {
+        $.ajax({
+            url: '/Admin/Editflag',
+            data: { mid: mid },
+            type: 'post',
+            dataType: 'json',
+            success: (data) => {
+                if (data == 200) {
+                    SelInfo();
+                } else {
+                    alert('修改失败，请检查网络连接');
+                }
+            }
+        });
+    }
+
+    /**
+     真是删除成员信息
+     */
+    function Del(mid) {
+        $.ajax({
+            url: '/Admin/DelMemberByCID',
+            data: { mid: mid },
+            type: 'post',
+            dataType: 'json',
+            success: (data) => {
+                if (data == 200) {
+                    alert('删除成功');
+                    SelInfo();
+                } else {
+                    alert('删除失败，请检查网络连接');
+                }
             }
         });
     }

@@ -31,42 +31,49 @@ namespace Midheaven.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult AdminIndex(string username)
+        public ActionResult AdminIndex(string username, int flog)
         {
             IQueryable<Member> members = mDBEntities.Member.Where(m => m.R_ID != 1);
             if (!string.IsNullOrWhiteSpace(username))
-                members = members.Where(m => m.RealName.Contains(username));
+                members = members.Where(m => m.UserName.Contains(username));
+            if (flog != -1)
+                members = members.Where(m => m.M_Flog == flog);
             return Json(members, JsonRequestBehavior.AllowGet);
         }
 
         /// <summary>
-        /// 修改审核状态
+        /// 修改注销状态
         /// </summary>
-        /// <param name="flag"></param>
-        /// <param name="id"></param>
+        /// <param name="mid"></param>
         /// <returns></returns>
-        public ActionResult Editflag(int flag, int id)
+        [HttpPost]
+        public ActionResult Editflag(int mid)
         {
-            Member info = mDBEntities.Member.Where(st => st.M_ID == id).FirstOrDefault();
-            info.M_Flog = flag;
-            mDBEntities.SaveChanges();
-            return RedirectToAction("AdminIndex");
+            int code = 201;
+            Member info = mDBEntities.Member.Where(m => m.M_ID == mid).FirstOrDefault();
+            if (info.M_Flog == 0)
+                info.M_Flog = 1;
+            else
+                info.M_Flog = 0;
+            if (mDBEntities.SaveChanges() == 1)
+                code = 200;
+            return Json(code, JsonRequestBehavior.AllowGet);
         }
 
         /// <summary>
         /// 删除成员
-        /// 根据成员的id进行删除操作
+        /// 真实删除
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
-        public ActionResult DelMemberByCID(int id)
+        [HttpPost]
+        public ActionResult DelMemberByCID(int mid)
         {
-            //根据学号查询删除信息
-            var mebinfo = mDBEntities.Member.Where(s => s.M_ID == id).FirstOrDefault();
-            //移除
+            int code = 201;
+            var mebinfo = mDBEntities.Member.Where(m => m.M_ID == mid).FirstOrDefault();
             mDBEntities.Member.Remove(mebinfo);
-            mDBEntities.SaveChanges();
-            return RedirectToAction("AdminIndex");
+            if (mDBEntities.SaveChanges() == 1)
+                code = 200;
+            return Json(code, JsonRequestBehavior.AllowGet);
         }
 
     }
