@@ -30,13 +30,9 @@
                     @Html.PasswordFor(m => m.Password, new { @class = "uinput", placeholder = "密码", required = "required" })
                     <label id="pwdPrompt" class="text-danger"></label>
                     <div>
-                        <label class="text-left">
-                            @Html.CheckBox("chklogin")<span>记住密码</span>
-                        </label>
                         <div class="float-right d-inline-block">
                             @Html.ActionLink("还没有账户？", "Register", new { Controller = "Member", Action = "Register" }, new { @class = "text-danger" })
                         </div>
-
                     </div>
                     <button type="button" id="entry_btn" class="mt-1">登录</button>
                     <label id="prompt" class="text-danger mt-1"></label>
