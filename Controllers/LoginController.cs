@@ -34,7 +34,10 @@ namespace Midheaven.Controllers
         {
             IQueryable<Member> member = mDBEntities.Member.Where(m => m.UserName == username & m.Password == userpwd);
             if (member.Count() == 1)
+            {
+                Session["username"] = member.FirstOrDefault().UserName;
                 return Json(member, JsonRequestBehavior.AllowGet);
+            }
             return Json(member, JsonRequestBehavior.AllowGet);
         }
     }

@@ -23,6 +23,8 @@ namespace Midheaven.Controllers
         [HttpGet]
         public ActionResult AdminIndex()
         {
+            if (Session["username"] == null)
+                return RedirectToAction("Login", "Login");
             return View();
         }
         /// <summary>
