@@ -14,120 +14,10 @@
     <script src="~/script/jquery-3.4.1.min.js"></script>
     <script src="~/script/bootstrap.min.js"></script>
     <link href="~/content/Index.css" rel="stylesheet" />
-    <style type="text/css">
-        .ContentCourse {
-            background: #e6e6e6;
-        }
-
-        .index-card-container {
-            float: left;
-            margin-left: 0px;
-            border-radius: 4px;
-            margin-bottom: 12px;
-            background: #fff;
-        }
-
-        .course-card-container {
-            width: 290px;
-            height: 268px;
-            position: relative;
-            transition: .3s all linear;
-        }
-
-            .course-card-container a {
-                color: #000;
-            }
-
-            .course-card-container:hover .course-card-top.hashadow {
-                box-shadow: 0 8px 16px 0 rgba(7, 17, 27, 0.1);
-            }
-
-            .course-card-container:hover .course-card-top .course-banner {
-                background-color: #f3f5f7;
-            }
-
-            .course-card-container .course-stat {
-                position: absolute;
-                border: 2px solid #FFFFFF;
-                border-radius: 12px;
-                top: 8px;
-                left: -0.5px;
-                z-index: 4;
-                font-family: 'dincondm';
-                font-size: 12px;
-                color: #FFFFFF;
-                line-height: 20px;
-                padding: 0 8px;
-            }
-
-                .course-card-container .course-stat.new {
-                    background-color: #FFAA00;
-                    background-image: linear-gradient(90deg, #ffaa00 17%, #f76b1c 100%);
-                }
-
-                .course-card-container .course-stat.hot {
-                    background-color: #F02930;
-                    background-image: linear-gradient(90deg, #f68688 0%, #f02930 100%);
-                }
-
-                .course-card-container .course-stat.upgrade {
-                    background-color: #9447EB;
-                    background-image: linear-gradient(90deg, #bd89f8 6%, #9447eb 93%);
-                }
-
-            .course-card-container .course-card-top {
-                width: 270px;
-                height: 148px;
-                position: relative;
-                border-radius: 8px;
-                transition: all .3s;
-            }
-
-                .course-card-container .course-card-top.hashadow {
-                    overflow: hidden;
-                }
-
-                .course-card-container .course-card-top .course-banner {
-                    width: 100%;
-                    height: 100%;
-                    background-color: #f3f5f7;
-                    border-radius: 8px;
-                }
-
-                .course-card-container .course-card-top .course-label {
-                    position: absolute;
-                    bottom: 6px;
-                    left: 8px;
-                    font-size: 12px;
-                    color: #FFFFFF;
-                    line-height: 16px;
-                }
-
-                    .course-card-container .course-card-top .course-label label {
-                        display: inline-block;
-                        background: rgba(28, 31, 33, 0.6);
-                        border-radius: 4px;
-                        padding: 4px 8px;
-                        margin-right: 4px;
-                        margin-bottom: 2px;
-                        margin-right: 0px;
-                        font-weight: 200;
-                    }
-
-        .sales-tip {
-            box-sizing: border-box;
-            background: rgba(242, 13, 13, 0.08);
-            border-radius: 2px;
-            font-weight: 200;
-            color: #F20D0D;
-            padding: 0 4px;
-            display: inline-block;
-        }
-    </style>
 </head>
 <body>
     <div>
-        <nav class="nav navbar text-white bg-secondary">
+        <nav class="nav navbar text-white bg-secondary sticky-top">
             <span>中天教育</span>
             <div class="justify-content-end mr-5">
                 <input type="text" name="name" placeholder="  Search" style="border-radius:20px; border:0;" class="mr-2" />
@@ -214,25 +104,25 @@
             <div class="row">
                 <!-- 零基础就业 -->
                 <div class='path-list clearfix'>
-                    <a href='' target="_blank" data-track='ljtj-1-1'>
+                    <a href="#">
                         <i class="i-web"></i>
                         <p class="tit">前端工程师体系课</p>
                         <p class="desc">从0到前端全栈开发</p>
                         <div class="label2020"></div>
                     </a>
-                    <a href=''>
+                    <a href="#">
                         <i class="i-java"></i>
                         <p class="tit">Java工程师体系课</p>
                         <p class="desc">从0到胜任大厂Java岗位</p>
                         <div class="label2020"></div>
                     </a>
-                    <a href=''>
+                    <a href="#">
                         <i class="i-python"></i>
                         <p class="tit">Python工程师体系课</p>
                         <p class="desc">从0到Python全栈开发</p>
                         <div class="label2020"></div>
                     </a>
-                    <a href=''>
+                    <a href="#">
                         <i class="i-bigdata"></i>
                         <p class="tit">大数据工程师体系课</p>
                         <p class="desc">抢占高薪“大”机遇</p>
@@ -246,16 +136,16 @@
                 <h2 class="d-inline-block">职场提升</h2><span class="text-secondary pt-2">&emsp;1年以上开发经验系统成长</span>
             </div>
             <div class="recommend-box row">
-                <a href="" target="_blank">
+                <a href="#">
                     <img src="~/image/Tourist-Img/index_javafullstack.png" height="90" alt="" />
                 </a>
-                <a href="" target="_blank">
+                <a href="#">
                     <img src="~/image/Tourist-Img/index_javaarchitect.png" class="ml-1" height="90" alt="" />
                 </a>
-                <a href="" target="_blank">
+                <a href="#">
                     <img src="~/image/Tourist-Img/index_webfullstack.png" class="ml-1" height="90" alt="" />
                 </a>
-                <a href="" target="_blank">
+                <a href="#">
                     <img src="~/image/Tourist-Img/index_dataanalysis.png" class="ml-1" height="90" alt="" />
                 </a>
             </div>
@@ -267,9 +157,10 @@
                 <div class="row">
                     <h2 class="mt-4">新上好课</h2>
                 </div>
-                <div class="row">
+
+                <div class="row ml-5 mb-3">
                     <div class='index-card-container course-card-container container'>
-                        <a target="_blank" class='course-card' href="">
+                        <a class='course-card' href="#">
                             <div class="course-stat new">
                                 新课
                             </div>
@@ -279,24 +170,198 @@
                                     <label>PHP</label>
                                 </div>
                             </div>
-                            <div>
+                            <div class="Coursetitle">
                                 <b>Laravel重构企业级电商项目</b>
                             </div>
-                            <div class="mt-2 text-secondary text-right">
+                            <div class="text-secondary text-right">
                                 11
                                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
                                     <path fill-rule="evenodd" d="M8.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 .5-.5z" />
                                 </svg>
                             </div>
-                            <div class="mt-2">
+                            <div>
                                 <span class="text-danger font-weight-bold">￥388.00</span><span class="sales-tip">限时优惠</span>
                             </div>
                         </a>
                     </div>
+
+                    <div class='index-card-container course-card-container container'>
+                        <a class='course-card' href="#">
+                            <div class="course-stat new">
+                                新课
+                            </div>
+                            <div class='course-card-top hashadow'>
+                                <img class="course-banner w-100" src="~/image/Tourist-Img/15.jpg">
+                                <div class="course-label">
+                                    <label>Vue.js</label>
+                                    <label>Typescript</label>
+                                </div>
+                            </div>
+                            <div class="Coursetitle">
+                                <b>Vue3.0（正式版） + TS 仿知乎专栏企业级项目</b>
+                            </div>
+                            <div class="text-secondary text-right">
+                                110
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                                    <path fill-rule="evenodd" d="M8.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 .5-.5z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="text-danger font-weight-bold">￥388.00</span><span class="sales-tip">限时优惠</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class='index-card-container course-card-container container'>
+                        <a class='course-card' href="#">
+                            <div class="course-stat new">
+                                新课
+                            </div>
+                            <div class='course-card-top hashadow'>
+                                <img class="course-banner w-100" src="~/image/Tourist-Img/13.jpg">
+                                <div class="course-label">
+                                    <label>CSS3</label>
+                                    <label>Vue.js</label>
+                                </div>
+                            </div>
+                            <div class="Coursetitle">
+                                <b>体系课-数据可视化入门到精通-打造前端差异化竞争力</b>
+                            </div>
+                            <div class="text-secondary text-right">
+                                22
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                                    <path fill-rule="evenodd" d="M8.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 .5-.5z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="text-danger font-weight-bold">￥388.00</span><span class="sales-tip">限时优惠</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class='index-card-container course-card-container container'>
+                        <a class='course-card' href="#">
+                            <div class="course-stat new">
+                                新课
+                            </div>
+                            <div class='course-card-top hashadow'>
+                                <img class="course-banner w-100" src="~/image/Tourist-Img/14.png">
+                                <div class="course-label">
+                                    <label>计算机视觉</label>
+                                    <label>自然语言处理</label>
+                                </div>
+                            </div>
+                            <div class="Coursetitle">
+                                <b>PyTorch入门到进阶 实战计算机视觉与自然语言处理项目</b>
+                            </div>
+                            <div class="text-secondary text-right">
+                                333
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                                    <path fill-rule="evenodd" d="M8.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 .5-.5z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="text-danger font-weight-bold">￥388.00</span><span class="sales-tip">限时优惠</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class='index-card-container course-card-container container'>
+                        <a class='course-card' href="#">
+                            <div class="course-stat new">
+                                新课
+                            </div>
+                            <div class='course-card-top hashadow'>
+                                <img class="course-banner w-100" src="~/image/Tourist-Img/16.png">
+                                <div class="course-label">
+                                    <label>微服务</label>
+                                    <label>Spring Cloud</label>
+                                </div>
+                            </div>
+                            <div class="Coursetitle">
+                                <b>Spring Cloud分布式微服务实战，养成应对复杂业务的综合技术能力</b>
+                            </div>
+                            <div class="text-secondary text-right">
+                                12
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                                    <path fill-rule="evenodd" d="M8.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 .5-.5z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="text-danger font-weight-bold">￥388.00</span><span class="sales-tip">限时优惠</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class='index-card-container course-card-container container'>
+                        <a class='course-card' href="#">
+                            <div class="course-stat new">
+                                新课
+                            </div>
+                            <div class='course-card-top hashadow'>
+                                <img class="course-banner w-100" src="~/image/Tourist-Img/18.jpg">
+                                <div class="course-label">
+                                    <label>Python</label>
+                                </div>
+                            </div>
+                            <div class="Coursetitle">
+                                <b>全面系统Python3.8入门+进阶  (程序员必备第二语言)</b>
+                            </div>
+                            <div class="text-secondary text-right">
+                                45
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                                    <path fill-rule="evenodd" d="M8.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 .5-.5z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="text-danger font-weight-bold">￥388.00</span><span class="sales-tip">限时优惠</span>
+                            </div>
+                        </a>
+                    </div>
+
                 </div>
             </div>
         </div>
-    </div>
+
+        <!-- 模态框（Modal） -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="height:290px; width:585px">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel"></h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group text-center">
+                            已有帐号<a href="/Login/Login">&nbsp;前往登录</a>&emsp;
+                            没有账号<a href="/Member/Register">&nbsp;前往注册</a>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭 </button>
+                        </div>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+
+            <div>
+                <nav class="nav navbar text-white bg-secondary fixed-bottom navbottom">
+                    <div class="float-left ml-5">使用条款 | 隐私保护</div>
+                    <div class="float-right mr-5">©&nbsp;2020&nbsp;（武汉）中天教育服务有限公司&emsp;鄂ICP备0000000号</div>
+                </nav>
+            </div>
+        </div>
+        <script>
+            $("a").click(() => {
+                $("#myModal").modal({ backdrop: "static" });
+            })
+        </script>
 </body>
 </html>

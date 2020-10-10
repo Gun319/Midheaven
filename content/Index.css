@@ -144,3 +144,119 @@ a:hover {
 .container-types .recommend-box a:last-child {
     margin-right: 0;
 }
+
+.ContentCourse {
+    background: #e6e6e6;
+}
+
+.index-card-container {
+    float: left;
+    margin-left: 0px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+.course-card-container {
+    width: 290px;
+    height: 250px;
+    position: relative;
+    transition: .3s all linear;
+}
+
+    .course-card-container a {
+        color: #000;
+    }
+
+    .course-card-container:hover .course-card-top.hashadow {
+        box-shadow: 0 8px 16px 0 rgba(7, 17, 27, 0.1);
+    }
+
+    .course-card-container:hover .course-card-top .course-banner {
+        background-color: #f3f5f7;
+    }
+
+    .course-card-container .course-stat {
+        position: absolute;
+        border: 2px solid #FFFFFF;
+        border-radius: 12px;
+        top: 8px;
+        left: -0.5px;
+        z-index: 4;
+        font-family: 'dincondm';
+        font-size: 12px;
+        color: #FFFFFF;
+        line-height: 20px;
+        padding: 0 8px;
+    }
+
+        .course-card-container .course-stat.new {
+            background-color: #FFAA00;
+            background-image: linear-gradient(90deg, #ffaa00 17%, #f76b1c 100%);
+        }
+
+        .course-card-container .course-stat.hot {
+            background-color: #F02930;
+            background-image: linear-gradient(90deg, #f68688 0%, #f02930 100%);
+        }
+
+        .course-card-container .course-stat.upgrade {
+            background-color: #9447EB;
+            background-image: linear-gradient(90deg, #bd89f8 6%, #9447eb 93%);
+        }
+
+    .course-card-container .course-card-top {
+        width: 270px;
+        height: 148px;
+        position: relative;
+        border-radius: 8px;
+        transition: all .3s;
+    }
+
+        .course-card-container .course-card-top.hashadow {
+            overflow: hidden;
+        }
+
+        .course-card-container .course-card-top .course-banner {
+            width: 100%;
+            height: 100%;
+            background-color: #f3f5f7;
+            border-radius: 8px;
+        }
+
+        .course-card-container .course-card-top .course-label {
+            position: absolute;
+            bottom: 6px;
+            left: 8px;
+            font-size: 12px;
+            color: #FFFFFF;
+            line-height: 16px;
+        }
+
+            .course-card-container .course-card-top .course-label label {
+                display: inline-block;
+                background: rgba(28, 31, 33, 0.6);
+                border-radius: 4px;
+                padding: 4px 8px;
+                margin-right: 4px;
+                margin-bottom: 2px;
+                margin-right: 0px;
+                font-weight: 200;
+            }
+
+.Coursetitle {
+    height: 40px;
+}
+
+.sales-tip {
+    box-sizing: border-box;
+    background: rgba(242, 13, 13, 0.08);
+    border-radius: 2px;
+    font-weight: 200;
+    color: #F20D0D;
+    padding: 0 4px;
+    display: inline-block;
+}
+
+.navbottom {
+    opacity: 0.7;
+}
