@@ -1,0 +1,146 @@
+﻿#carousels {
+    margin: auto;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+    #carousels img {
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+.card-body .enum {
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.card {
+    border: 0;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.clearfix:after {
+    content: '\0020';
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.path-list {
+    margin-top: 24px;
+}
+
+    .path-list i {
+        float: left;
+        width: 50px;
+        height: 50px;
+        background: url(/image/Tourist-Img/path-2019-9.png) no-repeat;
+        background-size: 100%;
+        margin-left: 16px;
+        margin-right: 12px;
+    }
+
+    .path-list .i-web {
+        background-position: center 0;
+    }
+
+    .path-list .i-java {
+        background-position: center -50px;
+    }
+
+    .path-list .i-bigdata {
+        background: url(/image/Tourist-Img/bigdata.png) no-repeat;
+        background-size: cover;
+    }
+
+    .path-list .i-php {
+        background-position: center -200px;
+    }
+
+    .path-list .i-python {
+        background-position: center -100px;
+    }
+
+    .path-list .i-fullstack {
+        background-position: center -200px;
+    }
+
+    .path-list > a {
+        float: left;
+        margin-left: 18px;
+        font-size: 0;
+        display: block;
+        width: 270px;
+        padding-top: 20px;
+        box-sizing: border-box;
+        height: 90px;
+        overflow: hidden;
+        transition: all .3s;
+        background: #F3F5F6;
+        border-radius: 8px;
+        position: relative;
+    }
+
+        .path-list > a .label2020 {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 48px;
+            height: 18px;
+            background-image: url(/image/Tourist-Img/class_2020.png);
+            background-size: cover;
+            background-position: center center;
+        }
+
+        .path-list > a:hover {
+            box-shadow: 0px 4px 8px #0000001f;
+        }
+
+        .path-list > a:first-child {
+            margin-left: 0;
+        }
+
+    .path-list .tit {
+        font-size: 18px;
+        font-weight: bold;
+        color: #1C1F21;
+        margin-top: 0px;
+    }
+
+    .path-list .desc {
+        font-size: 14px;
+        color: #1C1F21;
+        line-height: 16px;
+        margin-top: -15px;
+        font-weight: 400;
+    }
+
+.container-types .recommend-box {
+    margin-top: 24px;
+    margin-left: 0px;
+}
+
+.container-types .recommend-box {
+    width: 270px;
+    height: 90px;
+    margin-right: 24px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.recommend-box a {
+    margin-left: 10px;
+}
+
+.container-types .recommend-box a:last-child {
+    margin-right: 0;
+}

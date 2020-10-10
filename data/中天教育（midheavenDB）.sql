@@ -152,13 +152,13 @@ insert into Course values('大数据零基础入门求职路线','路线面向零基础用户，从入门
 insert into Course values('大学计算机专业数学学习路线','提升编程内功，精选程序员必修的数学基础课，带你打好人工智能等领域的数学基础。','08.png',5,0)
 insert into Course values('Python功能测试到自动化测试路线','自动化测试效率更高，路线旨在帮Python功能测试从业者成功转型。','09.png',2,0)
 insert into Course values('Laravel重构企业级电商项目','一站式构建项目重构技术完整体系，全面强化你的职场核心竞争力！','10.png',2,0)				--
-insert into Course values('Vue3.0（正式版） + TS 仿知乎专栏企业级项目','第一时间解锁Vue3.0 ，先人一步掌握未来发展趋势！','15.png',3,0)
-insert into Course values('体系课—数据可视化入门到精通打造前端差异化竞争力','数据可视化就是前端未来的标配，就是前端未来竞争的破冰利器。','13.png',4,0)
+insert into Course values('Vue3.0（正式版） + TS 仿知乎专栏企业级项目','第一时间解锁Vue3.0 ，先人一步掌握未来发展趋势！','15.jpg',3,0)
+insert into Course values('体系课—数据可视化入门到精通打造前端差异化竞争力','数据可视化就是前端未来的标配，就是前端未来竞争的破冰利器。','13.jpg',4,0)
 insert into Course values('PyTorch入门到进阶实战计算机视觉与自然语言处理项目','理论基础+技术讲解+实战开发，快速掌握PyTorch框架。','14.png',5,0)
 insert into Course values('Spring Cloud分布式微服务实战养成应对复杂业务的综合技术能力','分布式/前后端分离/项目分层聚合 一体化开发门户平台＋媒体中心+运营中心3大业务平台。','16.png',2,0)
-insert into Course values('全面系统Python3.8入门+进阶（程序员必备第二语言）','从基础语法开始，体验python语言之美。','18.png',3,0)
+insert into Course values('全面系统Python3.8入门+进阶（程序员必备第二语言）','从基础语法开始，体验python语言之美。','18.jpg',3,0)
 insert into Course values('2020 重学C++重构你的C++知识体系','百度10年C++开发工程师的经验心得，带你深入底层、深入细节、深入思想，重学C++。','17.png',4,0)
-insert into Course values('微信小程序入门与实战-2020全新版','神课再迭代，历时4年，学员20000+，始终与微信官方同步，缔造全网首屈一指的精品课程。','11.png',5,0)
+insert into Course values('微信小程序入门与实战-2020全新版','神课再迭代，历时4年，学员20000+，始终与微信官方同步，缔造全网首屈一指的精品课程。','11.jpg',5,0)
 go
 
 --创建学生课程表 StudentCourse

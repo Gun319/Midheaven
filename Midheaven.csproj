@@ -103,6 +103,7 @@
     <Content Include="content\bootstrap-reboot.min.css" />
     <Content Include="content\bootstrap.css" />
     <Content Include="content\bootstrap.min.css" />
+    <Content Include="content\Index.css" />
     <Content Include="content\style.css" />
     <Content Include="content\zhuce.css" />
     <Content Include="data\中天教育（midheavenDB）.sql" />
@@ -128,15 +129,15 @@
     <Content Include="image\login\zhuce-image-1.png" />
     <Content Include="image\login\zhuce-image-2.png" />
     <Content Include="image\login\zhuce-image-3.png" />
+    <Content Include="image\Tourist-Img\11.jpg" />
+    <Content Include="image\Tourist-Img\13.jpg" />
+    <Content Include="image\Tourist-Img\15.jpg" />
     <Content Include="image\Tourist-Img\17.png" />
     <Content Include="image\Tourist-Img\10.png" />
-    <Content Include="image\Tourist-Img\11.png" />
     <Content Include="image\Tourist-Img\12.png" />
-    <Content Include="image\Tourist-Img\13.png" />
     <Content Include="image\Tourist-Img\14.png" />
-    <Content Include="image\Tourist-Img\15.png" />
     <Content Include="image\Tourist-Img\16.png" />
-    <Content Include="image\Tourist-Img\18.png" />
+    <Content Include="image\Tourist-Img\18.jpg" />
     <Content Include="image\Tourist-Img\bigdata.png" />
     <Content Include="image\Tourist-Img\class_2020.png" />
     <Content Include="image\Tourist-Img\index_dataanalysis.png" />
