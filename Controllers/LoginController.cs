@@ -15,7 +15,7 @@ namespace Midheaven.Controllers
         /// <summary>
         /// 数据实体对象
         /// </summary>
-        midheavenDBEntities mDBEntities = new midheavenDBEntities();
+        midheavenDBEntities mDBEntities = new midheavenDBEntities(); 
 
         /// <summary>
         /// 登录
