@@ -104,6 +104,7 @@
     <Content Include="content\bootstrap-reboot.min.css" />
     <Content Include="content\bootstrap.css" />
     <Content Include="content\bootstrap.min.css" />
+    <Content Include="content\Student.css" />
     <Content Include="content\style.css" />
     <Content Include="content\zhuce.css" />
     <Content Include="data\中天教育（midheavenDB）.sql" />
