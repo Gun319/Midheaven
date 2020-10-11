@@ -104,8 +104,9 @@
     <Content Include="content\bootstrap-reboot.min.css" />
     <Content Include="content\bootstrap.css" />
     <Content Include="content\bootstrap.min.css" />
-    <Content Include="content\Student.css" />
+    <Content Include="content\MemberByTeacher.css" />
     <Content Include="content\style.css" />
+    <Content Include="content\Student.css" />
     <Content Include="content\zhuce.css" />
     <Content Include="data\中天教育（midheavenDB）.sql" />
     <Content Include="Global.asax" />
@@ -166,6 +167,7 @@
     <Content Include="script\jquery-3.4.1.min.js" />
     <Content Include="script\Login.js" />
     <Content Include="script\mediaelement-and-player.min.js" />
+    <Content Include="script\MemberByTeacher.js" />
     <Content Include="script\moment-2.2.1.js" />
     <Content Include="script\Register.js" />
     <Content Include="script\responsiveslides.min.js" />

@@ -85,7 +85,6 @@ namespace Midheaven.Controllers
         /// <returns></returns>
         public ActionResult MemberByStudent()
         {
-
             return View();
         }
         /// <summary>

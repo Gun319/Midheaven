@@ -1,0 +1,59 @@
+﻿.course {
+    width: 100%;
+    overflow: hidden;
+}
+
+.courseItem {
+    margin: auto;
+    width: 1500px;
+    height: 80px;
+    border: 0;
+    background-color: #DDD;
+    border-radius: 8px;
+}
+
+.img {
+    height: 100%;
+    border-radius: 8px;
+    float: left;
+    height: 70px;
+}
+
+.inline-info1 {
+    height: 80px;
+    width: 35%;
+    /*border: 1px solid #979797;*/
+    border-radius: 8px;
+    float: left;
+    margin-left: 10px;
+    text-align: left;
+    line-height: 34px;
+    font-size: 14px;
+}
+
+.inline-info {
+    height: 80px;
+    width: 20%;
+    /*border: 1px solid #000;*/
+    border-radius: 8px;
+    float: left;
+    margin-left: 5px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.inline-info2 {
+    height: 80px;
+    width: 12%;
+    /*border: 1px solid #000;*/
+    border-radius: 8px;
+    float: left;
+    margin-left: 5px;
+    text-align: center;
+    line-height: 80px;
+    font-size: 14px;
+}
+
+.title {
+    color: red;
+}
