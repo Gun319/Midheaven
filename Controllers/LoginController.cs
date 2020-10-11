@@ -15,7 +15,7 @@ namespace Midheaven.Controllers
         /// <summary>
         /// 数据实体对象
         /// </summary>
-        midheavenDBEntities mDBEntities = new midheavenDBEntities(); 
+        midheavenDBEntities mDBEntities = new midheavenDBEntities();
 
         /// <summary>
         /// 登录
@@ -41,6 +41,7 @@ namespace Midheaven.Controllers
             if (member.Count() == 1)
             {
                 Session["username"] = username;
+                Session["mid"] = member.FirstOrDefault().M_ID;
                 return Json(member, JsonRequestBehavior.AllowGet);
             }
             return Json(member, JsonRequestBehavior.AllowGet);

@@ -112,10 +112,34 @@ namespace Midheaven.Controllers
         /// 教师所属课程，及其简介
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
         public ActionResult MemberByTeacher()
         {
+            //if (Session["username"] == null)
+            //    return RedirectToAction("Login", "Login");
+            //else
+            //{
+            //ViewBag.tName = Session["username"].ToString();
+            ViewBag.tName = "admin";
             return View();
+            //}
         }
+        /// <summary>
+        /// 查询显示课程
+        /// </summary>
+        /// <param name="cName">课程名称</param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult MemberByTeacher(string cName)
+        {
+            //int mid = Convert.ToInt32(Session["mid"].ToString());
+            int mid = 2;
+            IQueryable<Course> couser = mDBEntities.Course.Where(c => c.M_ID == mid & c.C_flog == 0);
+            if (!string.IsNullOrWhiteSpace(cName))
+                couser = couser.Where(c => c.C_Name.Contains(cName));
+            return Json(couser.ToList(), JsonRequestBehavior.AllowGet);
+        }
+
 
         /// <summary>
         /// 教师添加课程
