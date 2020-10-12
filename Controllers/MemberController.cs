@@ -133,11 +133,20 @@ namespace Midheaven.Controllers
         public ActionResult MemberByTeacher(string cName)
         {
             //int mid = Convert.ToInt32(Session["mid"].ToString());
-            int mid = 2;
-            IQueryable<Course> couser = mDBEntities.Course.Where(c => c.M_ID == mid & c.C_flog == 0);
+            int mid = 3;
+            //根据课程的id进行分组
+            var tCouser = from c in mDBEntities.Course
+                          join sc in mDBEntities.StudentCourse on c.C_ID equals sc.C_ID
+                          where c.M_ID == mid
+                          group new { sc.C_ID } by new { c.C_ID, c.C_Name, c.C_Desc, c.C_img, c.C_flog } into g
+                          select new
+                          {
+                              name = g.Key,
+                              count = g.Count()
+                          };
             if (!string.IsNullOrWhiteSpace(cName))
-                couser = couser.Where(c => c.C_Name.Contains(cName));
-            return Json(couser.ToList(), JsonRequestBehavior.AllowGet);
+                tCouser = tCouser.Where(c => c.name.C_Name.Contains(cName));
+            return Json(tCouser.ToList(), JsonRequestBehavior.AllowGet);
         }
 
 
@@ -154,12 +163,21 @@ namespace Midheaven.Controllers
 
         /// <summary>
         /// 修改课程信息
-        /// 教师只能修改自己上传的课程
+        /// 变更课程选择状态
         /// </summary>
         /// <returns></returns>
-        public ActionResult EditCourseById()
+        [HttpPost]
+        public ActionResult EditCourseById(int cid)
         {
-            return View();
+            int code = 201;
+            Course couser = mDBEntities.Course.Where(c => c.C_ID == cid).FirstOrDefault();
+            if (couser.C_flog == 0)
+                couser.C_flog = 1;
+            else
+                couser.C_flog = 0;
+            if (mDBEntities.SaveChanges() == 1)
+                code = 200;
+            return Json(code, JsonRequestBehavior.AllowGet);
         }
 
         /// <summary>

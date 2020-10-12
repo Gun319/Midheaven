@@ -170,6 +170,15 @@ create table StudentCourse
 )
 go
 
+select COUNT(M_ID) from StudentCourse group by(C_ID)
+--根据课程id进行分组，显示课程id  nae
+select c.C_ID,C_Name,C_Desc,C_img,C_flog,COUNT(sc.C_ID)as'选课人数' from Course c,StudentCourse sc 
+	where c.M_ID=2 and c.C_ID=sc.C_ID 
+	group by c.C_ID,C_Name,C_Desc,C_img,C_flog,sc.C_ID
+
+
+
+
 --向学生课程表添加数据
 insert into StudentCourse values(1,6)
 insert into StudentCourse values(2,7)
