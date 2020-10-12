@@ -115,14 +115,13 @@ namespace Midheaven.Controllers
         [HttpGet]
         public ActionResult MemberByTeacher()
         {
-            //if (Session["username"] == null)
-            //    return RedirectToAction("Login", "Login");
-            //else
-            //{
-            //ViewBag.tName = Session["username"].ToString();
-            ViewBag.tName = "admin";
-            return View();
-            //}
+            if (Session["username"] == null)
+                return RedirectToAction("Login", "Login");
+            else
+            {
+                ViewBag.tName = Session["username"].ToString();
+                return View();
+            }
         }
         /// <summary>
         /// 查询显示课程
@@ -132,8 +131,7 @@ namespace Midheaven.Controllers
         [HttpPost]
         public ActionResult MemberByTeacher(string cName)
         {
-            //int mid = Convert.ToInt32(Session["mid"].ToString());
-            int mid = 3;
+            int mid = Convert.ToInt32(Session["mid"].ToString());
             //根据课程的id进行分组
             var tCouser = from c in mDBEntities.Course
                           join sc in mDBEntities.StudentCourse on c.C_ID equals sc.C_ID
@@ -148,7 +146,6 @@ namespace Midheaven.Controllers
                 tCouser = tCouser.Where(c => c.name.C_Name.Contains(cName));
             return Json(tCouser.ToList(), JsonRequestBehavior.AllowGet);
         }
-
 
         /// <summary>
         /// 教师添加课程
@@ -187,9 +184,22 @@ namespace Midheaven.Controllers
         /// </summary>
         /// <param name="id">课程编号</param>
         /// <returns></returns>
-        public ActionResult DelCourseById(int id)
+        [HttpPost]
+        public ActionResult DelCourseById(int cid)
         {
-            return View();
+            int code = 201;
+            var couinfo = mDBEntities.Course.Where(m => m.C_ID == cid).FirstOrDefault();
+            if (couinfo.C_flog == 1)
+            {
+                mDBEntities.Course.Remove(couinfo);
+                if (mDBEntities.SaveChanges() == 1)
+                    code = 200;
+            }
+            else
+            {
+                code = 202;
+            }
+            return Json(code, JsonRequestBehavior.AllowGet);
         }
 
         /// <summary>

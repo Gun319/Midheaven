@@ -138,7 +138,7 @@ create table Course
 	C_Desc varchar(2000),				--课程描述
 	C_img varchar(20),					--课程图片
 	M_ID int,							--成员编号
-	C_flog int check(C_Flog=0 or C_Flog=1) default(0)--课程状态(0 是  1 否 默认已审核，未审核不可在客户端展示）
+	C_flog int check(C_flog=0 or C_flog=1) default(0)--课程状态(0 是  1 否 默认已审核，未审核不可在客户端展示）
 )
 go
 --向课程表添加数据
@@ -177,8 +177,36 @@ select c.C_ID,C_Name,C_Desc,C_img,C_flog,COUNT(sc.C_ID)as'选课人数' from Course 
 	group by c.C_ID,C_Name,C_Desc,C_img,C_flog,sc.C_ID
 
 
-
-
+SELECT 
+    [GroupBy1].[K1] AS [C_ID], 
+    [GroupBy1].[K6] AS [C1], 
+    [GroupBy1].[K2] AS [C_Name], 
+    [GroupBy1].[K3] AS [C_Desc], 
+    [GroupBy1].[K4] AS [C_img], 
+    [GroupBy1].[K5] AS [C_flog], 
+    [GroupBy1].[A1] AS [C2]
+    FROM ( SELECT 
+        [Filter1].[K1] AS [K1], 
+        [Filter1].[K2] AS [K2], 
+        [Filter1].[K3] AS [K3], 
+        [Filter1].[K4] AS [K4], 
+        [Filter1].[K5] AS [K5], 
+        [Filter1].[K6] AS [K6], 
+        COUNT([Filter1].[A1]) AS [A1]
+        FROM ( SELECT 
+            [Extent1].[C_ID] AS [K1], 
+            [Extent1].[C_Name] AS [K2], 
+            [Extent1].[C_Desc] AS [K3], 
+            [Extent1].[C_img] AS [K4], 
+            [Extent1].[C_flog] AS [K5], 
+            1 AS [K6], 
+            1 AS [A1]
+            FROM  [dbo].[Course] AS [Extent1]
+            INNER JOIN [dbo].[StudentCourse] AS [Extent2] ON [Extent1].[C_ID] = [Extent2].[C_ID]
+            WHERE 2 = [Extent1].[M_ID]
+        )  AS [Filter1]
+        GROUP BY [K1], [K2], [K3], [K4], [K5], [K6]
+    )  AS [GroupBy1]
 --向学生课程表添加数据
 insert into StudentCourse values(1,6)
 insert into StudentCourse values(2,7)
