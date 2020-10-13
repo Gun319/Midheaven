@@ -146,6 +146,24 @@ namespace Midheaven.Controllers
         }
 
         /// <summary>
+        /// 查看全部已上传的课程
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult SelCouser()
+        {
+            if (Session["username"] == null)
+                return RedirectToAction("Login", "Login");
+            else
+            {
+                int mid = Convert.ToInt32(Session["mid"].ToString());
+                IQueryable<Course> couser = mDBEntities.Course.Where(c => c.M_ID == mid);
+                ViewBag.couser = couser;
+                ViewBag.tName = Session["mName"].ToString();
+                return View();
+            }
+        }
+
+        /// <summary>
         /// 教师添加课程
         /// 用户类型为教师,关联当前教师id
         /// </summary>

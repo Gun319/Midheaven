@@ -38,6 +38,7 @@ namespace Midheaven.Controllers
             {
                 Session["username"] = username;
                 Session["mid"] = member.FirstOrDefault().M_ID;
+                Session["mName"] = member.FirstOrDefault().RealName;
                 return Json(member, JsonRequestBehavior.AllowGet);
             }
             return Json(member, JsonRequestBehavior.AllowGet);

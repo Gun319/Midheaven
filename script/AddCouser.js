@@ -22,7 +22,7 @@ function UpCourse() {
         success: (data) => {
             if (data == 200) {
                 alert('上传成功');
-                window.location.href = "/Member/MemberByTeacher";
+                window.location.href = "/Member/SelCouser";
             } else {
                 alert('服务器繁忙');
             }

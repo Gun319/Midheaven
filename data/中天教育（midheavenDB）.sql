@@ -142,9 +142,7 @@ create table Course
 )
 go
 --向课程表添加数据
-insert into Course values('微信小程序从0基础到精通','一站式掌握小程序生态，打造站内零基础精通小程序的最佳路径。','01.png',2)
 insert into Course values('微信小程序从0基础到精通','一站式掌握小程序生态，打造站内零基础精通小程序的最佳路径。','01.png',2,0)
-insert into Course values('Python高薪工程师精进路线','专为Pythoner进阶高新定制，从高级语法到主流源码再到源码，系统提升高薪技能。','02.png',3,0)
 insert into Course values('Python高薪工程师精进路线','专为Pythoner进阶高新定制，从高级语法到主流源码再到源码，系统提升高薪技能。','02.png',3,0)
 insert into Course values('Android工程师高薪面试突破路线','路线汇集Android高级工程师面试的关键技能，还原面试官视角，助力面试顺利通关。','03.png',4,0)
 insert into Course values('5G时代音视频开发与视频直播技术高手之路','对标大岗位需求，从音视频基础入门、处理核心技术到服务器设计开发，全面培养5G时代人才','04.png',5,0)

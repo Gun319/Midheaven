@@ -246,6 +246,7 @@
     <Content Include="Views\Member\Register.cshtml" />
     <Content Include="Views\Admin\AdminIndex.cshtml" />
     <Content Include="Views\Member\AddCourse.cshtml" />
+    <Content Include="Views\Member\SelCouser.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
