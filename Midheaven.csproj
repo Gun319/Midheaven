@@ -157,6 +157,7 @@
       <DependentUpon>MidheavenModel.edmx</DependentUpon>
       <LastGenOutput>MidheavenModel.cs</LastGenOutput>
     </Content>
+    <Content Include="script\AddCouser.js" />
     <Content Include="script\Admin.js" />
     <Content Include="script\bootstrap.bundle.js" />
     <Content Include="script\bootstrap.bundle.min.js" />
@@ -244,6 +245,7 @@
     <Content Include="Views\Member\MemberByTeacher.cshtml" />
     <Content Include="Views\Member\Register.cshtml" />
     <Content Include="Views\Admin\AdminIndex.cshtml" />
+    <Content Include="Views\Member\AddCourse.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

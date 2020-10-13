@@ -20,8 +20,8 @@ namespace Midheaven.Controllers
         [HttpGet]
         public ActionResult AdminIndex()
         {
-            if (Session["username"] == null)
-                return RedirectToAction("Login", "Login");
+            //if (Session["username"] == null)
+            //    return RedirectToAction("Login", "Login");
             return View();
         }
         /// <summary>
@@ -30,14 +30,15 @@ namespace Midheaven.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult AdminIndex(string username, int flog)
+        public ActionResult AdminIndex(string username, int flog, int page)
         {
+            mDBEntities.Configuration.ProxyCreationEnabled = false;
             IQueryable<Member> members = mDBEntities.Member.Where(m => m.R_ID != 1);
             if (!string.IsNullOrWhiteSpace(username))
                 members = members.Where(m => m.UserName.Contains(username));
             if (flog != -1)
                 members = members.Where(m => m.M_Flog == flog);
-            return Json(members, JsonRequestBehavior.AllowGet);
+            return Json(new { total = members, currtrow = members.OrderBy(m => m.M_ID).Skip(10 * (page - 1)).Take(10) }, JsonRequestBehavior.AllowGet);
         }
 
         /// <summary>

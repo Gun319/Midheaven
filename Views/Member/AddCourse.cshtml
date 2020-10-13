@@ -1,0 +1,55 @@
+﻿@model Midheaven.Models.Course
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/title.ico" rel="icon" type="image/x-icon" />
+    <title>上传课程</title>
+    <style type="text/css">
+    </style>
+    <script src="~/script/jquery-3.4.1.min.js"></script>
+    <link href="~/script/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <h2 class="text-center">上传课程</h2>
+        <div class="container">
+            <div class="form-group row">
+                <label class="col-2 d-none d-md-block col-form-label" for="classname">课程名称：</label>
+                @Html.TextBoxFor(m => m.C_Name, new { @class = "form-control col-8", @placeholder = "课程名称" })
+                <label class="col-2 text-danger" id="name"></label>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 d-none d-md-block col-form-label" for="classdesc">课程描述：</label>
+                @Html.TextBoxFor(m => m.C_Desc, new { @class = "form-control col-8", @placeholder = "课程描述" })
+                <label class="col-2 text-danger" id="desc"></label>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 d-none d-md-block col-form-label" for="classdesc">图片：</label>
+                <div class="col-10">
+                    <!-- 图片上传 -->
+                    <form id="frm1" action="/Member/Indexpic" method="post" enctype="multipart/form-data" target="frameFile">
+                        <iframe id="frameFile" name="frameFile" style="display: none"></iframe>
+                        <div>
+                            <input type="file" name="fileImg" id="fileImg" />
+                            <input id="btUpload" type="submit" value="上传" /><br />
+                            <span id="spanImgInfo"></span>
+                            <input type="hidden" name="hdImg" id="hdImg" />
+                        </div>
+                    </form>
+                    <!-- end 图片上传 -->
+                </div>
+            </div>
+            <div class="form-group row">
+                <input class="btn btn-primary btn-lg btn-block" onclick="UpCourse()" type="submit" value="上传">
+            </div>
+        </div>
+    </div>
+    <script src="~/script/AddCouser.js"></script>
+</body>
+</html>

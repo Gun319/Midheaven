@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
+using System.Web;
 using System.Web.Mvc;
 using Midheaven.Models;
 
@@ -152,7 +153,34 @@ namespace Midheaven.Controllers
         [HttpGet]
         public ActionResult AddCourse()
         {
-            return View();
+            if (Session["username"] == null)
+                return RedirectToAction("Login", "Login");
+            else
+                return View();
+        }
+
+        /// <summary>
+        /// 教师添加课程
+        /// 用户类型为教师,关联当前教师id
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult AddCourse(string cName, string CDesc, string imgname)
+        {
+            int code = 201;
+            int mid = Convert.ToInt32(Session["mid"].ToString());
+            Course course = new Course()
+            {
+                C_Name = cName,
+                C_Desc = CDesc,
+                C_img = imgname,
+                M_ID = mid,
+                C_flog = 0
+            };
+            mDBEntities.Course.Add(course);
+            if (mDBEntities.SaveChanges() == 1)
+                code = 200;
+            return Json(code, JsonRequestBehavior.AllowGet);
         }
 
         /// <summary>
@@ -277,6 +305,95 @@ namespace Midheaven.Controllers
                 result += code[rand.Next(63)]; //通过索引下标随机
             }
             return result;
+        }
+
+        /// <summary>
+        /// 图片上传
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult Indexpic()
+        {
+            HttpPostedFileBase filename = Request.Files["fileImg"];
+            //判断文件名是否为空
+            if (filename == null || filename.ContentLength == 0)
+            {
+                return Content("<script>alert('文件不能为空');</script>");
+            }
+            //判断后缀名是否为图片
+            string[] arrfilename = filename.FileName.Split('.');
+            if (arrfilename.Length < 2)
+            {
+                return Content("<script>alert('文件无后缀名');</script>");
+            }
+            //判断文件后缀名
+            //获取文件后缀名
+            string lastfilename = arrfilename[arrfilename.Length - 1].Trim();
+            //文件后缀
+            string[] lastname = { "jpg", "PNG", "jpeg", "png", "GIF" };
+            if (!lastname.Contains(lastfilename))
+            {
+                return Content("<script>alert('文件不是图片');</script>");
+            }
+            //文件内容是否为图片
+            FileEnum[] fiee = { FileEnum.JPG, FileEnum.jpg, FileEnum.PNG, FileEnum.png, FileEnum.GIF };
+            bool flog = file(filename, fiee);
+            if (flog == false)
+            {
+                return Content("<script>alert('文件不是图片');</script>");
+            }
+            string newfilename = Guid.NewGuid().ToString() + "." + lastfilename;
+            //保存
+            filename.SaveAs(Server.MapPath("~/image/Course/") + newfilename);
+            TempData["name"] = newfilename;
+            return Content("<script>window.parent.ShowImg('" + newfilename + "');</script>");
+        }
+
+        /// <summary>
+        /// 判断文件内容
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <param name="fileEnum"></param>
+        /// <returns></returns>
+        public bool file(HttpPostedFileBase filename, FileEnum[] fileEnum)
+        {
+            //获取文件大小
+            int fileName = filename.ContentLength;
+            //获取文件大小 存入byte[]
+            byte[] fileByte = new byte[fileName];
+            //读取字节流
+            filename.InputStream.Read(fileByte, 0, fileName);
+            string img = fileByte[0].ToString() + fileByte[1].ToString();
+            foreach (var item in fileEnum)
+            {
+                if (Convert.ToInt32(img) == Convert.ToInt32(item))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// 文件格式枚举
+        /// </summary>
+        public enum FileEnum
+        {
+            JPG = 255216,
+            GIF = 7173,
+            PNG = 13780,
+            png = 13780,
+            BMP = 6677,
+            RAR = 8297,
+            jpg = 255216,
+            xml = 6063,
+            exe = 7790,
+            aspx = 239187,
+            cs = 117115,
+            js = 119105,
+            txt = 210187,
+            sql = 255254,
+            html = 6033
         }
     }
 }
