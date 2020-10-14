@@ -176,6 +176,7 @@ select c.C_ID,C_Name,C_Desc,C_img,C_flog,COUNT(sc.C_ID)as'Ñ¡¿ÎÈËÊý' from Course 
 	where c.M_ID=2 and c.C_ID=sc.C_ID 
 	group by c.C_ID,C_Name,C_Desc,C_img,C_flog,sc.C_ID
 
+select * from Course c,StudentCourse sc where c.C_ID=sc.C_ID and sc.M_ID =6
 
 SELECT 
     [GroupBy1].[K1] AS [C_ID], 
