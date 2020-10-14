@@ -135,13 +135,44 @@ namespace Midheaven.Controllers
                 return View();
             }
         }
+        /// <summary>
+        /// 搜索课程
+        /// </summary>
+        /// <param name="courName"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult SelAllCouser(string courName)
         {
-            IQueryable<Course> couser = mDBEntities.Course;
+            IQueryable<Course> couser = mDBEntities.Course.Where(c => c.C_flog == 0);
             if (!string.IsNullOrWhiteSpace(courName))
                 couser = couser.Where(c => c.C_Name.Contains(courName));
             return Json(couser, JsonRequestBehavior.AllowGet);
+        }
+
+        /// <summary>
+        /// 学生选择课程
+        /// 判断是否重复选择
+        /// </summary>
+        /// <param name="cid"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult StudentAddCouser(int couid)
+        {
+            int code = 201;
+            int mid = Convert.ToInt32(Session["mid"].ToString());
+            IQueryable<StudentCourse> studentCourse = mDBEntities.StudentCourse.Where(s => s.C_ID == couid & s.M_ID == mid);
+            if (studentCourse.Count() == 0)
+            {
+                StudentCourse student = new StudentCourse
+                {
+                    C_ID = couid,
+                    M_ID = mid
+                };
+                mDBEntities.StudentCourse.Add(student);
+                if (mDBEntities.SaveChanges() == 1)
+                    code = 200;
+            }
+            return Json(code, JsonRequestBehavior.AllowGet);
         }
 
         /// <summary>
@@ -187,6 +218,7 @@ namespace Midheaven.Controllers
         /// 显示已选的课程,根据课程id进行删除,真删除
         /// </summary>
         /// <returns></returns>
+        [HttpPost]
         public ActionResult DelStudentCourse(int id)
         {
             int code = 201;
@@ -241,6 +273,7 @@ namespace Midheaven.Controllers
         /// 查看全部已上传的课程
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
         public ActionResult SelCouser()
         {
             if (Session["username"] == null)
