@@ -1,4 +1,4 @@
-﻿@model Midheaven.Models.Member
+﻿
 @{
     Layout = null;
 }
@@ -23,20 +23,24 @@
         <div id="output">
             <div class="containerT">
                 <h1 class="text-center">用户登录</h1>
-                @using (Html.BeginForm("", "", FormMethod.Post))
-                {
-                    @Html.TextBoxFor(m => m.UserName, new { @class = "uinput", placeholder = "用户名", required = "required" })
+                <form method="post">
+                    <input type="text" id="UserName" name="UserName" class="uinput" value="@ViewBag.UserName" placeholder="用户名" required="required" />
                     <label id="namePrompt" class="text-danger"></label>
-                    @Html.PasswordFor(m => m.Password, new { @class = "uinput", placeholder = "密码", required = "required" })
+                    <input type="password" id="Password" name="Pwd" class="uinput" value="@ViewBag.Pwd" placeholder="密码" required="required" />
                     <label id="pwdPrompt" class="text-danger"></label>
                     <div>
-                        <div class="float-right d-inline-block">
+                        <div class="float-left d-inline-block ml-2">
+                            <label>
+                                @Html.CheckBox("chkTrue")<span> 记住7天</span>
+                            </label>
+                        </div>
+                        <div class="float-right d-inline-block mr-2">
                             @Html.ActionLink("还没有账户？", "Register", new { Controller = "Member", Action = "Register" }, new { @class = "text-danger" })
                         </div>
                     </div>
                     <button type="button" id="entry_btn" class="mt-1">登录</button>
                     <label id="prompt" class="text-danger mt-1"></label>
-                }
+                </form>
             </div>
         </div>
     </div>

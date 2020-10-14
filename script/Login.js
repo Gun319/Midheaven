@@ -1,4 +1,6 @@
 ﻿$(function () {
+    getCookie();
+
     Victor("container", "output");   //登录背景函数
     $("#UserName").focus(); //默认选中
 
@@ -27,9 +29,10 @@ $("#entry_btn").click(() => {
 function PostData() {
     var uName = $("#UserName").val();
     var uPwd = $("#Password").val();
+    var chk1 = $("#chkTrue").is(":checked");
     $.ajax({
         url: '/Login/Login',
-        data: { username: uName, userpwd: uPwd },
+        data: { username: uName, userpwd: uPwd, chk1: chk1 },
         type: 'post',
         dataType: 'json',
         success: (data) => {
@@ -61,3 +64,22 @@ $("#UserName,#Password").focus(() => {
     $("#namePrompt").text("");
     $("#pwdPrompt").text("");
 });
+
+/**
+ 有Cookie对象则选中复选框
+ */
+function getCookie() {
+    $.ajax({
+        url: '/Login/GetCookie',
+        data: {},
+        type: 'post',
+        dataType: 'json',
+        success: (data) => {
+            if (data == 200) {
+                $("#chkTrue").prop("checked", true);
+            } else {
+                $("#chkTrue").prop("checked", false);
+            }
+        }
+    })
+}
