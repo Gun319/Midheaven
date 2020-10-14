@@ -165,6 +165,7 @@
     <Content Include="script\bootstrap.min.css" />
     <Content Include="script\bootstrap.min.js" />
     <Content Include="script\clndr.js" />
+    <Content Include="script\SelStudentCourse.js" />
     <Content Include="script\jquery-3.4.1.min.js" />
     <Content Include="script\Login.js" />
     <Content Include="script\mediaelement-and-player.min.js" />
