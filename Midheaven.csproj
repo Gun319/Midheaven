@@ -169,6 +169,7 @@
     <Content Include="script\Login.js" />
     <Content Include="script\mediaelement-and-player.min.js" />
     <Content Include="script\MemberByTeacher.js" />
+    <Content Include="script\MemberUpdateInfo.js" />
     <Content Include="script\moment-2.2.1.js" />
     <Content Include="script\Register.js" />
     <Content Include="script\responsiveslides.min.js" />
@@ -246,6 +247,8 @@
     <Content Include="Views\Admin\AdminIndex.cshtml" />
     <Content Include="Views\Member\AddCourse.cshtml" />
     <Content Include="Views\Member\SelCouser.cshtml" />
+    <Content Include="Views\Member\MemberUpdateInfo.cshtml" />
+    <Content Include="Views\Member\SelStudentCourse.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

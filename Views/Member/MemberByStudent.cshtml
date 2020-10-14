@@ -1,4 +1,4 @@
-﻿
+﻿@model Midheaven.Models.Course
 @{
     Layout = null;
 }
@@ -8,13 +8,109 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>学生首页</title>
+    <title>学生</title>
     <link href="~/script/bootstrap.min.css" rel="stylesheet" />
     <script src="~/script/jquery-3.4.1.min.js"></script>
-    <script src="~/script/bootstrap.bundle.min.js"></script>
+    <script src="~/script/bootstrap.min.js"></script>
 </head>
 <body>
-    <div></div>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light text-white-50 bg-secondary sticky-top">
+            <a class="navbar-brand text-white-50" href="">中天教育</a>
+            <span>@ViewBag.tName</span>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto"></ul>
+                <a href="/Member/SelStudentCourse" class="text-white-50 mr-3">查看已选的课程</a>
+                <a href="/Member/MemberUpdateInfo" class="text-white-50 mr-3">更新个人信息</a>
+                <form class="form-inline my-2 my-lg-0" method="post">
+                    <label class="form-inline">
+                        <span>课程名称：</span>  @Html.TextBoxFor(m => m.C_Name, new { @class = "form-control", @placeholder = "搜索课程" })
+                    </label>
+                    <button type="button" id="Sel" class="btn btn-info ml-3 mr-5">查询</button>
+                </form>
+            </div>
+        </nav>
+
+        <div>
+            <table class="table  table-striped text-center" id="dg">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>课程编号</th>
+                        <th>课程名称</th>
+                        <th>课程描述</th>
+                        <th>课程图片</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
+
+<script type="text/javascript">
+
+    SeleCouser();
+
+    //点击事件
+    //触发后台事件
+    //用户输入的名称
+    $("#Sel").click(function () {
+        SeleCouser();
+    })
+
+    $("#C_Name").keydown((event) => {
+        SeleCouser();
+    });
+
+    /**
+     所有课程
+     */
+    function SeleCouser() {
+        var courname = $("#C_Name").val();
+        $.ajax({
+            url: "/Member/SelAllCouser",
+            type: "post",
+            data: { courName: courname },
+            success: function (data) {
+                //获取后台传到前台的值
+                //循环显示得到的集合
+                var str = "";
+                $.each(data, function (index, item) {
+                    str += "<tr>";
+                    str += "<td width='100'>" + item.C_ID + "</td>";
+                    str += "<td>" + item.C_Name + "</td>";
+                    str += "<td>" + item.C_Desc + "</td>";
+                    str += "<td><img src='/image/Course/" + item.C_img + "' width='50' height='50' /></td>";
+                    str += "<td width='100'><button type='button' class='btn btn-danger' onclick='Addcourse(" + item.C_ID + ");'>选课</button></td>";
+                    str += "<tr>";
+                })
+                //清除（之前追加的）
+                $("#dg tr:gt(0)").remove();
+                //追加到指定位置
+                $("#dg").append(str);
+            }
+        })
+    }
+    function Addcourse(couid) {
+        $.ajax({
+            url: "/Member/SeleDept",
+            type: "post",
+            data: { couid: couid },
+            success: function (data) {
+                if (data == 200) {
+                    alert("选课成功")
+                }
+                if (data == 201) {
+                    alert("已选择该课程不能再重复选择")
+                }
+            }
+
+        })
+
+    }
+</script>
+
 

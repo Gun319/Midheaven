@@ -98,7 +98,7 @@ function Edit(mid) {
         dataType: 'json',
         success: (data) => {
             if (data == 200) {
-                SelInfo();
+                selPage(nums);
             } else {
                 alert('修改失败，请检查网络连接');
             }
@@ -118,7 +118,7 @@ function Del(mid) {
         success: (data) => {
             if (data == 200) {
                 alert('删除成功');
-                SelInfo();
+                selPage(nums);
             } else {
                 alert('删除失败，请检查网络连接');
             }

@@ -78,22 +78,109 @@ namespace Midheaven.Controllers
         }
 
         /// <summary>
+        /// 更新个人信息
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult MemberUpdateInfo()
+        {
+            if (Session["username"] == null)
+                return RedirectToAction("Login", "Login");
+            else
+            {
+                int mid = Convert.ToInt32(Session["mid"].ToString());
+                Member member = mDBEntities.Member.Where(m => m.M_ID == mid).FirstOrDefault();
+                return View(member);
+            }
+        }
+        /// <summary>
+        /// 真实更改
+        /// </summary>
+        /// <param name="Uname"></param>
+        /// <param name="pwd"></param>
+        /// <param name="sex"></param>
+        /// <param name="age"></param>
+        /// <param name="phoneNum"></param>
+        /// <param name="address"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult MemberUpdateInfo(string Uname, string pwd, string sex, int age, string phoneNum, string address)
+        {
+            int code = 201;
+            int mid = Convert.ToInt32(Session["mid"].ToString());
+            Member member = mDBEntities.Member.Where(m => m.M_ID == mid).FirstOrDefault();
+            member.UserName = Uname;
+            member.Password = pwd;
+            member.Sex = sex;
+            member.Age = age;
+            member.PhoneNum = phoneNum;
+            member.Address = address;
+            if (mDBEntities.SaveChanges() == 1)
+                code = 200;
+            return Json(code, JsonRequestBehavior.AllowGet);
+        }
+
+        /// <summary>
         /// 学生登陆成功
         /// 所有课程显示简介,课程选择按钮
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
         public ActionResult MemberByStudent()
         {
-            return View();
+            if (Session["username"] == null)
+                return RedirectToAction("Login", "Login");
+            else
+            {
+                ViewBag.tName = Session["mName"].ToString();
+                return View();
+            }
         }
+        [HttpPost]
+        public ActionResult SelAllCouser(string courName)
+        {
+            IQueryable<Course> couser = mDBEntities.Course;
+            if (!string.IsNullOrWhiteSpace(courName))
+                couser = couser.Where(c => c.C_Name.Contains(courName));
+            return Json(couser, JsonRequestBehavior.AllowGet);
+        }
+
         /// <summary>
         /// 学生课程选择
         /// 显示已选的课程,课程删除
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
         public ActionResult SelStudentCourse()
         {
-            return View();
+            if (Session["username"] == null)
+                return RedirectToAction("Login", "Login");
+            else
+            {
+                ViewBag.tName = Session["mName"].ToString();
+                return View();
+            }
+        }
+
+        /// <summary>
+        /// 初始化显示已选课程
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult SelCourse()
+        {
+            int mid = Convert.ToInt32(Session["mid"].ToString());
+            var allCourse = from sc in mDBEntities.StudentCourse
+                            join c in mDBEntities.Course on sc.C_ID equals c.C_ID
+                            where sc.M_ID == mid
+                            select new
+                            {
+                                c.C_ID,
+                                c.C_Name,
+                                c.C_Desc,
+                                sc.ID
+                            };
+            return Json(allCourse, JsonRequestBehavior.AllowGet);
         }
 
         /// <summary>
@@ -103,7 +190,12 @@ namespace Midheaven.Controllers
         /// <returns></returns>
         public ActionResult DelStudentCourse(int id)
         {
-            return RedirectToAction("SelStudentCourse");
+            int code = 201;
+            StudentCourse studentCourse = mDBEntities.StudentCourse.Where(s => s.ID == id).FirstOrDefault();
+            mDBEntities.StudentCourse.Remove(studentCourse);
+            if (mDBEntities.SaveChanges() == 1)
+                code = 200;
+            return Json(code, JsonRequestBehavior.AllowGet);
         }
 
         /// <summary>
@@ -203,7 +295,7 @@ namespace Midheaven.Controllers
         }
 
         /// <summary>
-        /// 修改课程信息
+        /// 教师修改课程信息
         /// 变更课程选择状态
         /// </summary>
         /// <returns></returns>
